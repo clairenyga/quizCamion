@@ -106,7 +106,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox6.setOnClickListener(this);
         mCheckBox7.setOnClickListener(this);
 
-        /**ArrayList<CheckBox> myArrayList;
+        ArrayList<CheckBox> myArrayList;
         myArrayList= new ArrayList<>();
         myArrayList.add(mCheckBox1);
         myArrayList.add(mCheckBox2);
@@ -114,7 +114,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         myArrayList.add(mCheckBox4);
         myArrayList.add(mCheckBox5);
         myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);*/
+        myArrayList.add(mCheckBox7);
 
 
         mCurrentQuestion = mQuestionBank.getQuestion();
@@ -140,9 +140,18 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
          }
          }
          }
-
-
          }*/
+        for(i = 1; i<=myArrayList.size(); i++){
+            CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
+            if(mCheckBox8.isChecked()){
+                mCheckBox8.setChecked(false);
+
+            }
+
+        }
+
+
+
 
     }
 
