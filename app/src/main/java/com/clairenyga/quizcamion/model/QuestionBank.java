@@ -10,8 +10,9 @@ public class QuestionBank {
     public QuestionBank(List<Question> questionList) {
         mQuestionList = questionList;
 
-        // Shuffle the question list
+        //Shuffle the question list
         Collections.shuffle(mQuestionList);
+
 
         mNextQuestionIndex = 0;
     }
@@ -26,3 +27,4 @@ public class QuestionBank {
         return mQuestionList.get(mNextQuestionIndex++);
     }
 }
+
