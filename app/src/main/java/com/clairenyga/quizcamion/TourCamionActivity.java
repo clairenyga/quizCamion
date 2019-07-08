@@ -55,7 +55,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private boolean mEnableTouchEvents;
 
-    public ArrayList myArrayList;
+    public ArrayList<CheckBox> myArrayList = new ArrayList<>();
 
 
     @Override
@@ -106,8 +106,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox6.setOnClickListener(this);
         mCheckBox7.setOnClickListener(this);
 
-        ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
         myArrayList.add(mCheckBox1);
         myArrayList.add(mCheckBox2);
         myArrayList.add(mCheckBox3);
@@ -117,40 +115,9 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         myArrayList.add(mCheckBox7);
 
 
+
         mCurrentQuestion = mQuestionBank.getQuestion();
         this.displayQuestion(mCurrentQuestion);
-
-        /**ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
-        myArrayList.add(mCheckBox1);
-        myArrayList.add(mCheckBox2);
-        myArrayList.add(mCheckBox3);
-        myArrayList.add(mCheckBox4);
-        myArrayList.add(mCheckBox5);
-        myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);*/
-
-        /**for (j=0;j<=5;j++){
-         if(QuestionList==j){
-         for(i = 1; i<=myArrayList.size(); i++){
-         CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-         if(mCheckBox8.isChecked()){
-         mCheckBox8.setChecked(false);
-
-         }
-         }
-         }
-         }*/
-        for(i = 1; i<=myArrayList.size(); i++){
-            CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-            if(mCheckBox8.isChecked()){
-                mCheckBox8.setChecked(false);
-
-            }
-
-        }
-
-
 
 
     }
@@ -185,14 +152,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             public void run() {
 
                 mEnableTouchEvents = true;
-                /**for(i = 1; i<=myArrayList.size(); i++){
-                    CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                    if(mCheckBox8.isChecked()){
-                        mCheckBox8.setChecked(false);
 
-                    }
-
-                }*/
 
 
                 // If this is the last question, ends the game.
@@ -201,25 +161,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     // End the game
                     endGame();}
                 else {
+                    manageCheckbox();
                     mCurrentQuestion = mQuestionBank.getQuestion();
-                    /**for(i = 1; i<=myArrayList.size(); i++){
-                        CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                        if(mCheckBox8.isChecked()){
-                            mCheckBox8.setChecked(false);
 
-                        }
-
-                    }*/
                     displayQuestion(mCurrentQuestion);
 
-                    /**for(i = 1; i<=myArrayList.size(); i++){
-                        CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                        if(mCheckBox8.isChecked()){
-                            mCheckBox8.setChecked(false);
-
-                        }
-
-                    }*/
 
 
 
@@ -228,27 +174,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
 
         }, 2000); // LENGTH_SHORT is usually 2 second long
-
-      /** ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
-        myArrayList.add(mCheckBox1);
-        myArrayList.add(mCheckBox2);
-        myArrayList.add(mCheckBox3);
-        myArrayList.add(mCheckBox4);
-        myArrayList.add(mCheckBox5);
-        myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);
-
-
-        for(i = 1; i<=myArrayList.size(); i++){
-            CheckBox mCheckBox8=myArrayList.get(i);
-            if(mCheckBox8.isChecked()){
-                mCheckBox8.setChecked(false);
-
-            }
-
-        }*/
-
 
 
     }
@@ -326,6 +251,16 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 question4,
                 question5));
     }
+
+    private void manageCheckbox(){
+        for(i = 0; i<myArrayList.size(); i++){
+            (myArrayList.get(i)).setChecked(false);
+
+            }
+
+        }
+
+
 
 
 
