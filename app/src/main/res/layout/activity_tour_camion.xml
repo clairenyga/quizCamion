@@ -79,4 +79,13 @@
         android:layout_weight="1"
         android:textSize="20sp"
         android:text="CheckBox7" />
+
+    <Button
+        android:id="@+id/activity_tour_camion_next_btn"
+        android:layout_width="50mm"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:text="Suivant"/>
 </LinearLayout>

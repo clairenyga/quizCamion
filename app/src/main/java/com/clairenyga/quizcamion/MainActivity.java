@@ -124,9 +124,8 @@ public class MainActivity extends AppCompatActivity {
         if (null != prenom) {
             int score = mPreferences.getInt(PREF_KEY_SCORE, 0);
 
-            String fulltext = "Welcome back, " + prenom
-                    + "!\nYour last score was " + score
-                    + ", will you do better this time?";
+            String fulltext = "Bonjour " + prenom
+                    + ", nous allons commencer le tour du Camion";
             mGreetingText.setText(fulltext);
             mPrenomInput.setText(prenom);
             //mPrenomInput.setSelection(nom.length());
