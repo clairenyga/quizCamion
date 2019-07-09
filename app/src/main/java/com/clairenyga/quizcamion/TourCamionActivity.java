@@ -187,6 +187,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         return mEnableTouchEvents && super.dispatchTouchEvent(ev);
 
     }
+    
 
     private void endGame() {
 
