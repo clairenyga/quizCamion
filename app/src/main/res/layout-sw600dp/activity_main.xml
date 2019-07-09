@@ -9,56 +9,64 @@
 
     <TextView
         android:id="@+id/activity_main_greeting_txt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="20dp"
+        android:padding="50dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         android:text="Bonjour, nous allons commencer le tour du camion!" />
 
     <EditText
         android:id="@+id/activity_main_nom_input"
-        android:layout_width="50mm"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
         android:hint="Nom"
-        android:padding="20dp" />
+         />
 
     <EditText
         android:id="@+id/activity_main_prenom_input"
-        android:layout_width="50mm"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
         android:hint="Prénom"
-        android:padding="20dp" />
+         />
 
     <EditText
         android:id="@+id/activity_main_immattracteur_input"
-        android:layout_width="50mm"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
         android:hint="Immatriculation du tracteur"
-        android:padding="20dp" />
+         />
 
     <EditText
         android:id="@+id/activity_main_immatremorque_input"
-        android:layout_width="50mm"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
         android:hint="Immatriculation de la remorque"
-        android:padding="20dp" />
+         />
 
     <Button
         android:id="@+id/activity_main_play_btn"
         android:layout_width="50mm"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:text="Commençons"
+        android:textAlignment="center"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
-        android:text="Commençons" />
+        android:textSize="20sp" />
 
 
 </LinearLayout>

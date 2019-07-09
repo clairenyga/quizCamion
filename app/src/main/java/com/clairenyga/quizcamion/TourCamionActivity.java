@@ -4,6 +4,7 @@ package com.clairenyga.quizcamion;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import com.clairenyga.quizcamion.R;
@@ -34,11 +35,13 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CheckBox mCheckBox5;
     private CheckBox mCheckBox6;
     private CheckBox mCheckBox7;
-
+    private Button mNextButton;
 
 
     private QuestionBank mQuestionBank;
+    private List<Question> ListQuestions;
     private Question mCurrentQuestion;
+    private CharSequence s;
 
 
     private int mScore;
@@ -46,7 +49,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     //private int indexQuestion;
 
-    public int i,j;
+    public int i, j, b;
 
 
     public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
@@ -55,7 +58,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private boolean mEnableTouchEvents;
 
-    public ArrayList myArrayList;
+    public ArrayList<CheckBox> myArrayList = new ArrayList<>();
+    public ArrayList<String>ListData=new ArrayList<>();
 
 
     @Override
@@ -87,7 +91,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox5 = findViewById(R.id.checkBox5);
         mCheckBox6 = findViewById(R.id.checkBox6);
         mCheckBox7 = findViewById(R.id.checkBox7);
-
+        mNextButton = findViewById(R.id.activity_tour_camion_next_btn);
 
         // Use the tag property to 'name' the buttons
         mCheckBox1.setTag(0);
@@ -105,47 +109,23 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox5.setOnClickListener(this);
         mCheckBox6.setOnClickListener(this);
         mCheckBox7.setOnClickListener(this);
+        mNextButton.setOnClickListener(this);
 
-        /**ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
         myArrayList.add(mCheckBox1);
         myArrayList.add(mCheckBox2);
         myArrayList.add(mCheckBox3);
         myArrayList.add(mCheckBox4);
         myArrayList.add(mCheckBox5);
         myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);*/
+        myArrayList.add(mCheckBox7);
 
 
+        mNextButton.setEnabled(false);
         mCurrentQuestion = mQuestionBank.getQuestion();
         this.displayQuestion(mCurrentQuestion);
 
-        /**ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
-        myArrayList.add(mCheckBox1);
-        myArrayList.add(mCheckBox2);
-        myArrayList.add(mCheckBox3);
-        myArrayList.add(mCheckBox4);
-        myArrayList.add(mCheckBox5);
-        myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);*/
-
-        /**for (j=0;j<=5;j++){
-         if(QuestionList==j){
-         for(i = 1; i<=myArrayList.size(); i++){
-         CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-         if(mCheckBox8.isChecked()){
-         mCheckBox8.setChecked(false);
-
-         }
-         }
-         }
-
-
-         }*/
 
     }
-
 
 
     @Override
@@ -156,95 +136,51 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         super.onSaveInstanceState(outState);
     }
 
+
     @Override
     public void onClick(View v) {
         int responseIndex = (int) v.getTag();
 
-        if (responseIndex == mCurrentQuestion.getAnswerIndex()) {
-            // Good answer
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            mScore++;
-        } else {
-            // Wrong answer
-            Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show();
+        if (mQuestionBank.mNextQuestionIndex == 2) {
+            Toast.makeText(this, "N'oubliez pas de vérifier le chargement avant de prendre la route!", Toast.LENGTH_LONG).show();
         }
 
-        mEnableTouchEvents = false;
 
-        new Handler().postDelayed(new Runnable() {
+        mEnableTouchEvents = false;
+        mNextButton.setEnabled(false);
+
+        new Handler().postAtFrontOfQueue(new Runnable() {
             @Override
             public void run() {
-
                 mEnableTouchEvents = true;
-                /**for(i = 1; i<=myArrayList.size(); i++){
-                    CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                    if(mCheckBox8.isChecked()){
-                        mCheckBox8.setChecked(false);
+                mNextButton.setEnabled(true);
+
+                mNextButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // If this is the last question, ends the game.
+                        // Else, display the next question.
+                        if (--mNumberOfQuestions == 0) {
+                            // End the game
+                            endGame();
+                        } else {
+                            manageCheckbox();
+                            mCurrentQuestion = mQuestionBank.getQuestion();
+                            displayQuestion(mCurrentQuestion);
+
+
+                        }
 
                     }
+                });
 
-                }*/
-
-
-                // If this is the last question, ends the game.
-                // Else, display the next question.
-                if (--mNumberOfQuestions == 0) {
-                    // End the game
-                    endGame();}
-                else {
-                    mCurrentQuestion = mQuestionBank.getQuestion();
-                    /**for(i = 1; i<=myArrayList.size(); i++){
-                        CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                        if(mCheckBox8.isChecked()){
-                            mCheckBox8.setChecked(false);
-
-                        }
-
-                    }*/
-                    displayQuestion(mCurrentQuestion);
-
-                    /**for(i = 1; i<=myArrayList.size(); i++){
-                        CheckBox mCheckBox8=(CheckBox)myArrayList.get(i);
-                        if(mCheckBox8.isChecked()){
-                            mCheckBox8.setChecked(false);
-
-                        }
-
-                    }*/
-
-
-
-                }
 
             }
 
-        }, 2000); // LENGTH_SHORT is usually 2 second long
 
-      /** ArrayList<CheckBox> myArrayList;
-        myArrayList= new ArrayList<>();
-        myArrayList.add(mCheckBox1);
-        myArrayList.add(mCheckBox2);
-        myArrayList.add(mCheckBox3);
-        myArrayList.add(mCheckBox4);
-        myArrayList.add(mCheckBox5);
-        myArrayList.add(mCheckBox6);
-        myArrayList.add(mCheckBox7);
-
-
-        for(i = 1; i<=myArrayList.size(); i++){
-            CheckBox mCheckBox8=myArrayList.get(i);
-            if(mCheckBox8.isChecked()){
-                mCheckBox8.setChecked(false);
-
-            }
-
-        }*/
-
-
+        });
 
     }
-
-
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -253,16 +189,25 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void endGame() {
+
+        for(b=1;b<myArrayList.size();b++){
+            if((myArrayList.get(b)).isChecked()){
+                ListData.add((String)(myArrayList.get(b)).getText());
+            }
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Well done!")
-                .setMessage("Your score is " + mScore)
+        builder.setTitle("Voici les problèmes signalés:")
+                //.setMessage("Your score is " + mScore)
+                .setMessage("" +
+                        ""+ListData)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // End the activity
                         Intent intent = new Intent();
-                        intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
+                        //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
                         setResult(RESULT_OK, intent);
                         finish();
                     }
@@ -275,15 +220,19 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private void displayQuestion(final Question question) {
         mQuestionTextView.setText(question.getQuestion());
-        mCheckBox1.setText(question.getChoiceList().get(0));
-        mCheckBox2.setText(question.getChoiceList().get(1));
-        mCheckBox3.setText(question.getChoiceList().get(2));
-        mCheckBox4.setText(question.getChoiceList().get(3));
-        mCheckBox5.setText(question.getChoiceList().get(4));
-        mCheckBox6.setText(question.getChoiceList().get(5));
-        mCheckBox7.setText(question.getChoiceList().get(6));
+
+        for (j = 0; j < myArrayList.size(); j++) {
+            if (question.getChoiceList().get(j) != null) {
+                myArrayList.get(j).setVisibility(View.VISIBLE);
+                (myArrayList.get(j)).setText(question.getChoiceList().get(j));
 
 
+
+            } else {
+                myArrayList.get(j).setVisibility(View.GONE);
+            }
+
+        }
 
 
     }
@@ -291,24 +240,19 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private QuestionBank generateQuestions() {
         Question question1 = new Question("Vérification de l'état des pneus",
-                Arrays.asList("Rien à signaler", "Crevaison", "pneus lisses", "présence d'hernies", "2", null, null),
-                1);
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies", null, null, null));
 
         Question question2 = new Question("Verification porte arrière",
-                Arrays.asList("Rien à signaler", "Ne se ferme pas", "4", "5", "6", "7", "8"),
-                2);
+                Arrays.asList("Rien à signaler", "La porte ne se ferme pas", null, null, null, null, null));
 
         Question question3 = new Question("Voyez-vous un tâche sous le tracteur? Si oui, vous devez contrôler les niveaux.",
-                Arrays.asList("Rien à signaler", "Oui, c'est une fuite d'huile", "Oui,c'est une fuite...", "Oui, c'est une fuite...","9","10","11"),
-                0);
+                Arrays.asList("Rien à signaler", "Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole", null, null, null));
 
         Question question4 = new Question("Vérification des feux",
-                Arrays.asList("Rien à signaler", "feu avant gauche cassé", "feu avant droit cassé", "feu arrière gauche cassé","feu arrière droit cassé","feu latéral gauche cassé","feu latéral droit cassé"),
-                3);
+                Arrays.asList("Rien à signaler", "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé"));
 
         Question question5 = new Question("Vérification de la carrosserie",
-                Arrays.asList("Rien à signaler", "marche pied gauche cassé", "marche pied droit cassé", "pare-choc avant endommagé","déflecteur gauche cassé","déflecteur droit cassé","calandre endommagée"),
-                0);
+                Arrays.asList("Rien à signaler", "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée"));
 
 
         return new QuestionBank(Arrays.asList(question1,
@@ -319,7 +263,21 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
 
+    private void manageCheckbox() {
 
+        for(b=1;b<myArrayList.size();b++){
+            if((myArrayList.get(b)).isChecked()){
+                ListData.add((String)(myArrayList.get(b)).getText());
+            }
+        }
+
+        for(i =0; i<myArrayList.size();i++) {
+        (myArrayList.get(i)).setChecked(false);
+        mNextButton.setEnabled(false);
+
+    }
+
+}
 
 
     @Override

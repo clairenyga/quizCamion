@@ -5,15 +5,10 @@ import java.util.List;
 
 public class QuestionBank {
     private List<Question> mQuestionList;
-    private int mNextQuestionIndex;
+    public int mNextQuestionIndex;
 
     public QuestionBank(List<Question> questionList) {
         mQuestionList = questionList;
-
-        //Shuffle the question list
-        Collections.shuffle(mQuestionList);
-
-
         mNextQuestionIndex = 0;
     }
 
@@ -25,6 +20,13 @@ public class QuestionBank {
 
         // Please note the post-incrementation
         return mQuestionList.get(mNextQuestionIndex++);
+    }
+    public int getNextQuestionIndex(){
+        return mNextQuestionIndex;
+    }
+
+    public void setNextQuestionIndex(int nextQuestionIndex) {
+        mNextQuestionIndex = nextQuestionIndex;
     }
 }
 
