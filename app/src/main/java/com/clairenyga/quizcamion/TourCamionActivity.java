@@ -187,7 +187,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         return mEnableTouchEvents && super.dispatchTouchEvent(ev);
 
     }
-    
+
 
     private void endGame() {
 
@@ -263,6 +263,15 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 question5));
     }
 
+    /**private QuestionBank generateQuestions2() {
+        Question question1 = new Question("Vérification de l'état des pneus",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies", null, null, null));
+
+        Question question2 = new Question("Verification porte arrière",
+                Arrays.asList("Rien à signaler", "La porte ne se ferme pas", null, null, null, null, null));
+
+        return new QuestionBank(Arrays.asList(question1,question2));
+    }*/
 
     private void manageCheckbox() {
 
