@@ -1,5 +1,6 @@
 package com.clairenyga.quizcamion;
 
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,11 +9,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.clairenyga.quizcamion.model.User;
 //import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
+
 import static java.lang.System.out;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,10 +24,16 @@ public class MainActivity extends AppCompatActivity {
     private TextView mGreetingText;
     private EditText mNomInput;
     private EditText mPrenomInput;
+    private TextView mVehiculeText;
+    private CheckBox mCheckBox1;
+    private CheckBox mCheckBox2;
+    private CheckBox mCheckBox3;
+    private CheckBox mCheckBox4;
     private EditText mImmattracteurInput;
     private EditText mImmatremorqueInput;
     private Button mStartButton;
     private User mUser;
+    private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
     //ok1
 
     public static final int TOUR_ACTIVITY_REQUEST_CODE = 42;
@@ -47,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         mGreetingText = findViewById(R.id.activity_main_greeting_txt);
         mNomInput = findViewById(R.id.activity_main_nom_input);
         mPrenomInput = findViewById(R.id.activity_main_prenom_input);
+        mVehiculeText=findViewById(R.id.activity_main_vehicule_txt);
+        mCheckBox1 = findViewById(R.id.checkBox1);
+        mCheckBox2 = findViewById(R.id.checkBox2);
+        mCheckBox3 = findViewById(R.id.checkBox3);
+        mCheckBox4 = findViewById(R.id.checkBox4);
         mImmattracteurInput = findViewById(R.id.activity_main_immattracteur_input);
         mImmatremorqueInput = findViewById(R.id.activity_main_immatremorque_input);
         mStartButton = findViewById(R.id.activity_main_play_btn);
@@ -55,8 +70,53 @@ public class MainActivity extends AppCompatActivity {
 
         greetUser();
         //ok3
+        mCheckBox1.setTag(0);
+        mCheckBox2.setTag(1);
+        mCheckBox3.setTag(2);
+        mCheckBox4.setTag(3);
 
-        mImmatremorqueInput.addTextChangedListener(new TextWatcher() {
+        mImmattracteurInput.setVisibility((View.GONE));
+        mImmatremorqueInput.setVisibility(View.GONE);
+
+        mCheckBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        mCheckBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        mCheckBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+            }
+        });
+
+        mCheckBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+            }
+        });
+
+        ArrayVehicule.add(mCheckBox1);
+        ArrayVehicule.add(mCheckBox2);
+        ArrayVehicule.add(mCheckBox3);
+        ArrayVehicule.add(mCheckBox4);
+        
+
+        mImmattracteurInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
