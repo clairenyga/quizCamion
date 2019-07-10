@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayVehicule.add(mCheckBox2);
         ArrayVehicule.add(mCheckBox3);
         ArrayVehicule.add(mCheckBox4);
-        
 
         mImmattracteurInput.addTextChangedListener(new TextWatcher() {
             @Override
