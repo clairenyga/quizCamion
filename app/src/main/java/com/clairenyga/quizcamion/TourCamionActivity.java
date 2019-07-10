@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.widget.Toast;
 import com.clairenyga.quizcamion.model.Question;
 import com.clairenyga.quizcamion.model.QuestionBank;
+import com.clairenyga.quizcamion.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +24,8 @@ import java.util.Collections;
 import java.util.List;
 //import androidx.appcompat.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_VEHICULE;
 
 
 public class TourCamionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -46,6 +49,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private int mScore;
     private int mNumberOfQuestions;
+    private int mVehicule;
 
     //private int indexQuestion;
 
@@ -55,6 +59,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
     public static final String BUNDLE_STATE_SCORE = "currentScore";
     public static final String BUNDLE_STATE_QUESTION = "currentQuestion";
+
 
     private boolean mEnableTouchEvents;
 
@@ -68,6 +73,13 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_tour_camion);
 
         System.out.println("TourCamionActivity::onCreate()");
+
+        /**Intent TourCamionIntent=getIntent();
+         mVehicule= getIntent().getIntExtra(EXTRA_VEHICULE,0);
+
+        if(mVehicule==1){
+            mQuestionBank = this.generateQuestions();
+        }*/
 
         mQuestionBank = this.generateQuestions();
 

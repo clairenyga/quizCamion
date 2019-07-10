@@ -1,6 +1,7 @@
 package com.clairenyga.quizcamion;
 
 import android.content.DialogInterface;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.clairenyga.quizcamion.model.User;
 //import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mStartButton;
     private User mUser;
     private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
+    public int mVehicule;
+
     //ok1
 
     public static final int TOUR_ACTIVITY_REQUEST_CODE = 42;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String PREF_KEY_IMMATTRACTEUR = "PREF_KEY_IMMATTRACTEUR";
     public static final String PREF_KEY_IMMATREMORQUE= "PREF_KEY_IMMATREMORQUE";
     public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";
+    public static final String EXTRA_VEHICULE="EXTRA_VEHICULE";
     //ok2
 
     @Override
@@ -77,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
         mImmattracteurInput.setVisibility((View.GONE));
         mImmatremorqueInput.setVisibility(View.GONE);
+        mVehicule=0;
 
         mCheckBox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
-
+                mVehicule=1;
             }
         });
 
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mImmatremorqueInput.setVisibility(View.VISIBLE);
-
+                mVehicule=2;
             }
         });
 
@@ -99,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
                 mImmatremorqueInput.setVisibility(View.GONE);
+                mVehicule=3;
             }
         });
 
@@ -107,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
                 mImmatremorqueInput.setVisibility(View.GONE);
+                mVehicule=4;
             }
         });
 
@@ -114,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayVehicule.add(mCheckBox2);
         ArrayVehicule.add(mCheckBox3);
         ArrayVehicule.add(mCheckBox4);
+
+
 
         mImmattracteurInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -154,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 // User clicked the button
 
                 Intent TourActivityIntent = new Intent(MainActivity.this, TourCamionActivity.class);
+                getIntent().putExtra(EXTRA_VEHICULE,mVehicule);
                 startActivityForResult(TourActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
             }
         });
@@ -173,6 +182,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //ok6
+
+
+
 
     private void greetUser() {
         String prenom = mPreferences.getString(PREF_KEY_FIRSTNAME, null);
