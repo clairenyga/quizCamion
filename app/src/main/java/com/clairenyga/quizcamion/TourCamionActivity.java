@@ -272,9 +272,9 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         int responseIndex = (int) v.getTag();
 
-        if (mQuestionBank.mNextQuestionIndex == 2) {
+        /**if (mQuestionBank.mNextQuestionIndex == 2) {
             Toast.makeText(this, "N'oubliez pas de vérifier le chargement avant de prendre la route!", Toast.LENGTH_LONG).show();
-        }
+        }*/
 
 
         mEnableTouchEvents = false;
@@ -374,7 +374,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                          "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
 
-        Question question2 = new Question("Verification de létat de la remorque bachée",
+        Question question2 = new Question("Verification de l'état de la remorque bachée",
                 Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
                         "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                         "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",
@@ -391,7 +391,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                         "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
 
-        Question question2 = new Question("Verification de létat de la remorque avec hayon",
+        Question question2 = new Question("Verification de l'état de la remorque avec hayon",
                 Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile",
                         "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                         "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",

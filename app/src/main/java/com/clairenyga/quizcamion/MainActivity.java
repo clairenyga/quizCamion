@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox mCheckBox9;
     private EditText mImmattracteurInput;
     private EditText mImmatremorqueInput;
+    private EditText mImmatvehiculeInput;
     private Button mStartButton;
     private User mUser;
     private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox9 = findViewById(R.id.checkBox9);
         mImmattracteurInput = findViewById(R.id.activity_main_immattracteur_input);
         mImmatremorqueInput = findViewById(R.id.activity_main_immatremorque_input);
+        mImmatvehiculeInput = findViewById(R.id.activity_main_immatvehicule_input);
         mStartButton = findViewById(R.id.activity_main_play_btn);
 
         mStartButton.setEnabled(false);
@@ -89,12 +91,15 @@ public class MainActivity extends AppCompatActivity {
 
         mImmattracteurInput.setVisibility((View.GONE));
         mImmatremorqueInput.setVisibility(View.GONE);
+        mImmatvehiculeInput.setVisibility(View.GONE);
         mVehicule=0;
 
         mCheckBox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
                 mVehicule=1;
             }
         });
@@ -102,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
                 mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
                 mVehicule=2;
             }
         });
@@ -111,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
                 mVehicule=3;
             }
         });
@@ -120,8 +128,59 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
                 mVehicule=4;
+            }
+        });
+
+        mCheckBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=5;
+            }
+        });
+
+        mCheckBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=6;
+            }
+        });
+
+        mCheckBox7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=7;
+            }
+        });
+
+        mCheckBox8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=8;
+            }
+        });
+
+        mCheckBox9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=9;
             }
         });
 
@@ -136,22 +195,43 @@ public class MainActivity extends AppCompatActivity {
         ArrayVehicule.add(mCheckBox9);
 
 
-        mImmattracteurInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            mImmatremorqueInput.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+                }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mStartButton.setEnabled(s.toString().length() != 0);
-            }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    mStartButton.setEnabled(s.toString().length() != 0);
+                }
 
-            @Override
-            public void afterTextChanged(Editable s) {
+                @Override
+                public void afterTextChanged(Editable s) {
 
-            }
-        });
+                }
+            });
+
+
+
+            mImmatvehiculeInput.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    mStartButton.setEnabled(s.toString().length() != 0);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+
         //ok4
 
         mStartButton.setOnClickListener(new View.OnClickListener() {
