@@ -85,6 +85,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         System.out.println("TourCamionActivity::onCreate()");
 
+        startQuiz();
 
         Intent TourActivityIntent=getIntent();
         mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
@@ -346,6 +347,25 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 .setCancelable(false)
                 .create()
                 .show();
+    }
+
+    private void startQuiz(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("IMPORATNT:")
+                .setMessage("Afin de répondre correctement au questionnaire, vous devez faire un tour complet du véhicule, y compris regarder en dessous de celui-ci avant de prendre la route." +
+                "De plus, vous devez impérativement vérifier que vous êtes en possession:" +
+                "De la carte grise du tracteur,..." )
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .create()
+                .show();
+
     }
 
 
