@@ -51,13 +51,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private int mNumberOfQuestions;
     private int mVehicule;
 
-    //private int indexQuestion;
-
     public int i, j, b;
 
-
-    ///public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
-    //public static final String BUNDLE_STATE_SCORE = "currentScore";
     public static final String BUNDLE_STATE_QUESTION = "currentQuestion";
 
 
@@ -91,7 +86,12 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
             //mScore = 0;
-            mNumberOfQuestions = 5;
+            if(mVehicule==1) {
+                mNumberOfQuestions = 5;
+            }
+            if(mVehicule==2){
+                mNumberOfQuestions=2;
+            }
         }
 
         mEnableTouchEvents = true;
@@ -138,19 +138,13 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mNextButton.setEnabled(false);
         mCurrentQuestion = mQuestionBank.getQuestion();
         this.displayQuestion(mCurrentQuestion);
-
-
     }
-
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        //outState.putInt(BUNDLE_STATE_SCORE, mScore);
         outState.putInt(BUNDLE_STATE_QUESTION, mNumberOfQuestions);
-
         super.onSaveInstanceState(outState);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -203,7 +197,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-
     private void endGame() {
 
         for(b=1;b<myArrayList.size();b++){
@@ -252,7 +245,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
     }
-
 
     private QuestionBank generateQuestions() {
         Question question1 = new Question("Vérification de l'état des pneus",
@@ -303,7 +295,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
 }
-
 
     @Override
     protected void onStart() {
