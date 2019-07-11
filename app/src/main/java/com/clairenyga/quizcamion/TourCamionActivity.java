@@ -74,14 +74,14 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         System.out.println("TourCamionActivity::onCreate()");
 
-        /**Intent TourCamionIntent=getIntent();
-         mVehicule= getIntent().getIntExtra(EXTRA_VEHICULE,0);
+
+        Intent TourActivityIntent=getIntent();
+        mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
 
         if(mVehicule==1){
             mQuestionBank = this.generateQuestions();
-        }*/
-
-        mQuestionBank = this.generateQuestions();
+        }
+        //mQuestionBank = this.generateQuestions();
 
         if (savedInstanceState != null) {
             mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);

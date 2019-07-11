@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mStartButton;
     private User mUser;
     private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
-    public int mVehicule;
+    private int mVehicule;
 
     //ok1
 
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 // User clicked the button
 
                 Intent TourActivityIntent = new Intent(MainActivity.this, TourCamionActivity.class);
-                getIntent().putExtra(EXTRA_VEHICULE,mVehicule);
+                TourActivityIntent.putExtra(EXTRA_VEHICULE,mVehicule);
                 startActivityForResult(TourActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
             }
         });
