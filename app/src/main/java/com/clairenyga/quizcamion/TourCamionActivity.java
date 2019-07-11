@@ -38,6 +38,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CheckBox mCheckBox5;
     private CheckBox mCheckBox6;
     private CheckBox mCheckBox7;
+    private CheckBox mCheckBox8;
+    private CheckBox mCheckBox9;
+    private CheckBox mCheckBox10;
+    private CheckBox mCheckBox11;
+    private CheckBox mCheckBox12;
+    private CheckBox mCheckBox13;
+    private CheckBox mCheckBox14;
+    private CheckBox mCheckBox15;
+    private CheckBox mCheckBox16;
+    private CheckBox mCheckBox17;
+    private CheckBox mCheckBox18;
+    private CheckBox mCheckBox19;
+    private CheckBox mCheckBox20;
+    private CheckBox mCheckBox21;
+    private CheckBox mCheckBox22;
+    private CheckBox mCheckBox23;
     private Button mNextButton;
 
 
@@ -74,10 +90,31 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
 
         if(mVehicule==1){
-            mQuestionBank = this.generateQuestions();
+            mQuestionBank = this.generateQuestions1();
         }
         if(mVehicule==2){
             mQuestionBank = this.generateQuestions2();
+        }
+        if(mVehicule==3){
+            mQuestionBank = this.generateQuestions3();
+        }
+        if(mVehicule==4){
+            mQuestionBank = this.generateQuestions4();
+        }
+        if(mVehicule==5){
+            mQuestionBank = this.generateQuestions5();
+        }
+        /**if(mVehicule==6){
+            mQuestionBank = this.generateQuestions6();
+        }
+        if(mVehicule==7){
+            mQuestionBank = this.generateQuestions7();
+        }
+        if(mVehicule==8){
+            mQuestionBank = this.generateQuestions8();
+        }*/
+        if(mVehicule==9){
+            mQuestionBank = this.generateQuestions9();
         }
 
 
@@ -87,10 +124,31 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         } else {
             //mScore = 0;
             if(mVehicule==1) {
-                mNumberOfQuestions = 5;
+                mNumberOfQuestions = 2;
             }
             if(mVehicule==2){
                 mNumberOfQuestions=2;
+            }
+            if(mVehicule==3) {
+                mNumberOfQuestions = 2;
+            }
+            if(mVehicule==4) {
+                mNumberOfQuestions = 2;
+            }
+            if(mVehicule==5) {
+                mNumberOfQuestions = 2;
+            }
+            if(mVehicule==6) {
+                mNumberOfQuestions = 1;
+            }
+            if(mVehicule==7) {
+                mNumberOfQuestions = 1;
+            }
+            if(mVehicule==8) {
+                mNumberOfQuestions = 1;
+            }
+            if(mVehicule==9) {
+                mNumberOfQuestions = 1;
             }
         }
 
@@ -106,6 +164,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox5 = findViewById(R.id.checkBox5);
         mCheckBox6 = findViewById(R.id.checkBox6);
         mCheckBox7 = findViewById(R.id.checkBox7);
+        mCheckBox8 = findViewById(R.id.checkBox8);
+        mCheckBox9 = findViewById(R.id.checkBox9);
+        mCheckBox10 = findViewById(R.id.checkBox10);
+        mCheckBox11 = findViewById(R.id.checkBox11);
+        mCheckBox12 = findViewById(R.id.checkBox12);
+        mCheckBox13 = findViewById(R.id.checkBox13);
+        mCheckBox14 = findViewById(R.id.checkBox14);
+        mCheckBox15 = findViewById(R.id.checkBox15);
+        mCheckBox16 = findViewById(R.id.checkBox16);
+        mCheckBox17 = findViewById(R.id.checkBox17);
+        mCheckBox18 = findViewById(R.id.checkBox18);
+        mCheckBox19 = findViewById(R.id.checkBox19);
+        mCheckBox20 = findViewById(R.id.checkBox20);
+        mCheckBox21 = findViewById(R.id.checkBox21);
+        mCheckBox22 = findViewById(R.id.checkBox22);
+        mCheckBox23 = findViewById(R.id.checkBox23);
         mNextButton = findViewById(R.id.activity_tour_camion_next_btn);
 
         // Use the tag property to 'name' the buttons
@@ -116,6 +190,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox5.setTag(4);
         mCheckBox6.setTag(5);
         mCheckBox7.setTag(6);
+        mCheckBox8.setTag(7);
+        mCheckBox9.setTag(8);
+        mCheckBox10.setTag(9);
+        mCheckBox11.setTag(10);
+        mCheckBox12.setTag(11);
+        mCheckBox13.setTag(12);
+        mCheckBox14.setTag(13);
+        mCheckBox15.setTag(14);
+        mCheckBox16.setTag(15);
+        mCheckBox17.setTag(16);
+        mCheckBox18.setTag(17);
+        mCheckBox19.setTag(18);
+        mCheckBox20.setTag(19);
+        mCheckBox21.setTag(20);
+        mCheckBox22.setTag(21);
+        mCheckBox23.setTag(22);
 
         mCheckBox1.setOnClickListener(this);
         mCheckBox2.setOnClickListener(this);
@@ -124,6 +214,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox5.setOnClickListener(this);
         mCheckBox6.setOnClickListener(this);
         mCheckBox7.setOnClickListener(this);
+        mCheckBox8.setOnClickListener(this);
+        mCheckBox9.setOnClickListener(this);
+        mCheckBox10.setOnClickListener(this);
+        mCheckBox11.setOnClickListener(this);
+        mCheckBox12.setOnClickListener(this);
+        mCheckBox13.setOnClickListener(this);
+        mCheckBox14.setOnClickListener(this);
+        mCheckBox15.setOnClickListener(this);
+        mCheckBox16.setOnClickListener(this);
+        mCheckBox17.setOnClickListener(this);
+        mCheckBox18.setOnClickListener(this);
+        mCheckBox19.setOnClickListener(this);
+        mCheckBox20.setOnClickListener(this);
+        mCheckBox21.setOnClickListener(this);
+        mCheckBox22.setOnClickListener(this);
+        mCheckBox23.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
 
         myArrayList.add(mCheckBox1);
@@ -133,6 +239,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         myArrayList.add(mCheckBox5);
         myArrayList.add(mCheckBox6);
         myArrayList.add(mCheckBox7);
+        myArrayList.add(mCheckBox8);
+        myArrayList.add(mCheckBox9);
+        myArrayList.add(mCheckBox10);
+        myArrayList.add(mCheckBox11);
+        myArrayList.add(mCheckBox12);
+        myArrayList.add(mCheckBox13);
+        myArrayList.add(mCheckBox14);
+        myArrayList.add(mCheckBox15);
+        myArrayList.add(mCheckBox16);
+        myArrayList.add(mCheckBox17);
+        myArrayList.add(mCheckBox18);
+        myArrayList.add(mCheckBox19);
+        myArrayList.add(mCheckBox20);
+        myArrayList.add(mCheckBox21);
+        myArrayList.add(mCheckBox22);
+        myArrayList.add(mCheckBox23);
 
 
         mNextButton.setEnabled(false);
@@ -246,38 +368,86 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    private QuestionBank generateQuestions() {
-        Question question1 = new Question("Vérification de l'état des pneus",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies", null, null, null));
+    private QuestionBank generateQuestions1() {
+        Question question1 = new Question("Vérification de l'état de du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                         "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
 
-        Question question2 = new Question("Verification porte arrière",
-                Arrays.asList("Rien à signaler", "La porte ne se ferme pas", null, null, null, null, null));
-
-        Question question3 = new Question("Voyez-vous un tâche sous le tracteur? Si oui, vous devez contrôler les niveaux.",
-                Arrays.asList("Rien à signaler", "Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole", null, null, null));
-
-        Question question4 = new Question("Vérification des feux",
-                Arrays.asList("Rien à signaler", "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé"));
-
-        Question question5 = new Question("Vérification de la carrosserie",
-                Arrays.asList("Rien à signaler", "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée"));
+        Question question2 = new Question("Verification de létat de la remorque bachée",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",
+                        "Les portes ne se ferment pas correctement",null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,
-                question2,
-                question3,
-                question4,
-                question5));
+                question2));
     }
 
     private QuestionBank generateQuestions2() {
-        Question question1 = new Question("Vérification de l'état des pneus",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies", null, null, null));
+        Question question1 = new Question("Vérification de l'état du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
 
-        Question question2 = new Question("Verification porte arrière",
-                Arrays.asList("Rien à signaler", "La porte ne se ferme pas", null, null, null, null, null));
+        Question question2 = new Question("Verification de létat de la remorque avec hayon",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",
+                        "Les portes ne se ferment pas correctement","fuite au niveau du toit","hayon défaillant"));
 
-        return new QuestionBank(Arrays.asList(question1,question2));
+
+        return new QuestionBank(Arrays.asList(question1,
+                question2));
+    }
+
+    private QuestionBank generateQuestions3(){
+        Question question1 = new Question("Vérification de l'état du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1));
+        //attention Q2 manquante
+    }
+
+    private QuestionBank generateQuestions4(){
+        Question question1 = new Question("Vérification de l'état du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1));
+        //attention Q2 manquante
+    }
+
+    private QuestionBank generateQuestions5(){
+        Question question1 = new Question("Vérification de l'état du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1));
+        //attention Q2 manquante
+    }
+
+    /**private QuestionBank generateQuestions6(){
+
+    }
+
+    private QuestionBank generateQuestions7(){
+
+    }
+
+    private QuestionBank generateQuestions8(){
+
+    }*/
+
+    private QuestionBank generateQuestions9(){
+        Question question1 = new Question("Vérification de l'état de du tracteur",
+                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                        "il y a une fuite d'huile au niveau du hayon","hayon défaillant","fuite au niveau du toit",null));
+        return new QuestionBank(Arrays.asList(question1));
     }
 
     private void manageCheckbox() {
