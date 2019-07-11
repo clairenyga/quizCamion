@@ -56,8 +56,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public int i, j, b;
 
 
-    public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
-    public static final String BUNDLE_STATE_SCORE = "currentScore";
+    ///public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
+    //public static final String BUNDLE_STATE_SCORE = "currentScore";
     public static final String BUNDLE_STATE_QUESTION = "currentQuestion";
 
 
@@ -81,13 +81,16 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         if(mVehicule==1){
             mQuestionBank = this.generateQuestions();
         }
-        //mQuestionBank = this.generateQuestions();
+        if(mVehicule==2){
+            mQuestionBank = this.generateQuestions2();
+        }
+
 
         if (savedInstanceState != null) {
-            mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
+            //mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
-            mScore = 0;
+            //mScore = 0;
             mNumberOfQuestions = 5;
         }
 
@@ -142,7 +145,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt(BUNDLE_STATE_SCORE, mScore);
+        //outState.putInt(BUNDLE_STATE_SCORE, mScore);
         outState.putInt(BUNDLE_STATE_QUESTION, mNumberOfQuestions);
 
         super.onSaveInstanceState(outState);
@@ -275,7 +278,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 question5));
     }
 
-    /**private QuestionBank generateQuestions2() {
+    private QuestionBank generateQuestions2() {
         Question question1 = new Question("Vérification de l'état des pneus",
                 Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies", null, null, null));
 
@@ -283,7 +286,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 Arrays.asList("Rien à signaler", "La porte ne se ferme pas", null, null, null, null, null));
 
         return new QuestionBank(Arrays.asList(question1,question2));
-    }*/
+    }
 
     private void manageCheckbox() {
 

@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int TOUR_ACTIVITY_REQUEST_CODE = 42;
     private SharedPreferences mPreferences;
-    public static final String PREF_KEY_FIRSTNAME = "PREF_KEY_PRENOM";
+    /**public static final String PREF_KEY_FIRSTNAME = "PREF_KEY_PRENOM";
     public static final String PREF_KEY_NAME = "PREF_KEY_NOM";
     public static final String PREF_KEY_IMMATTRACTEUR = "PREF_KEY_IMMATTRACTEUR";
     public static final String PREF_KEY_IMMATREMORQUE= "PREF_KEY_IMMATREMORQUE";
-    public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";
+    public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";*/
     public static final String EXTRA_VEHICULE="EXTRA_VEHICULE";
     //ok2
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("MainActivity::onCreate()");
 
         mUser = new User();
-        mPreferences = getPreferences(MODE_PRIVATE);
+        //mPreferences = getPreferences(MODE_PRIVATE);
         mGreetingText = findViewById(R.id.activity_main_greeting_txt);
         mNomInput = findViewById(R.id.activity_main_nom_input);
         mPrenomInput = findViewById(R.id.activity_main_prenom_input);
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         mStartButton.setEnabled(false);
 
-        greetUser();
+        /**greetUser();*/
         //ok3
         mCheckBox1.setTag(0);
         mCheckBox2.setTag(1);
@@ -154,10 +154,10 @@ public class MainActivity extends AppCompatActivity {
                 mUser.setImmattracteur(immattracteur);
                 mUser.setImmatremorque(immatremorque);
 
-                mPreferences.edit().putString(PREF_KEY_FIRSTNAME, mUser.getFirstname()).apply();
+                /**mPreferences.edit().putString(PREF_KEY_FIRSTNAME, mUser.getFirstname()).apply();
                 mPreferences.edit().putString(PREF_KEY_NAME, mUser.getNom()).apply();
                 mPreferences.edit().putString(PREF_KEY_IMMATTRACTEUR, mUser.getImmattracteur()).apply();
-                mPreferences.edit().putString(PREF_KEY_IMMATREMORQUE, mUser.getImmatremorque()).apply();
+                mPreferences.edit().putString(PREF_KEY_IMMATREMORQUE, mUser.getImmatremorque()).apply();*/
 
                 // User clicked the button
 
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //ok5
-    @Override
+    /**@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (TOUR_ACTIVITY_REQUEST_CODE == requestCode && RESULT_OK == resultCode) {
             // Fetch the score from the Intent
@@ -180,13 +180,13 @@ public class MainActivity extends AppCompatActivity {
 
             greetUser();
         }
-    }
+    }*/
     //ok6
 
 
 
 
-    private void greetUser() {
+   /** private void greetUser() {
         String prenom = mPreferences.getString(PREF_KEY_FIRSTNAME, null);
         String nom = mPreferences.getString(PREF_KEY_NAME, null);
         String Immattracteur = mPreferences.getString(PREF_KEY_IMMATTRACTEUR, null);
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             //mImmatremorqueInput.setSelection(nom.length());
             mStartButton.setEnabled(true);
         }
-    }
+    }*/
     //ok7
 
     @Override
