@@ -12,260 +12,261 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="15dp"
         android:text="Voici la question posée"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox1" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox2" />
 
     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox3" />
 
     <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox4" />
 
     <CheckBox
         android:id="@+id/checkBox5"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox5" />
 
     <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox6" />
 
     <CheckBox
         android:id="@+id/checkBox7"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox7" />
 
     <CheckBox
         android:id="@+id/checkBox8"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox8" />
 
     <CheckBox
         android:id="@+id/checkBox9"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox9" />
 
     <CheckBox
         android:id="@+id/checkBox10"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox10" />
 
     <CheckBox
         android:id="@+id/checkBox11"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox11" />
 
     <CheckBox
         android:id="@+id/checkBox12"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox12" />
 
     <CheckBox
         android:id="@+id/checkBox13"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox13" />
 
     <CheckBox
         android:id="@+id/checkBox14"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox14" />
 
     <CheckBox
         android:id="@+id/checkBox15"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox15" />
 
     <CheckBox
         android:id="@+id/checkBox16"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox16" />
 
     <CheckBox
         android:id="@+id/checkBox17"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox17" />
 
     <CheckBox
         android:id="@+id/checkBox18"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox18" />
 
     <CheckBox
         android:id="@+id/checkBox19"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox19" />
 
     <CheckBox
         android:id="@+id/checkBox20"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox20" />
 
     <CheckBox
         android:id="@+id/checkBox21"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox21" />
 
     <CheckBox
         android:id="@+id/checkBox22"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox22" />
 
     <CheckBox
         android:id="@+id/checkBox23"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox23" />
 
     <CheckBox
         android:id="@+id/checkBox24"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox24" />
 
     <CheckBox
         android:id="@+id/checkBox25"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox25" />
 
     <CheckBox
         android:id="@+id/checkBox26"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox26" />
 
     <CheckBox
         android:id="@+id/checkBox27"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="CheckBox27" />
 
     <Button
         android:id="@+id/activity_tour_camion_next_btn"
         android:layout_width="50mm"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
-        android:text="Suivant"/>
+        android:layout_marginTop="0dp"
+        android:padding="5dp"
+        android:text="Suivant" />
 </LinearLayout>
