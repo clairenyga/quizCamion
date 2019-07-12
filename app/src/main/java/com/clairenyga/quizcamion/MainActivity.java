@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private User mUser;
     private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
     private int mVehicule;
+    public int i,k;
 
     //ok1
 
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         mStartButton.setEnabled(false);
 
         //ok3
+
         mCheckBox1.setTag(0);
         mCheckBox2.setTag(1);
         mCheckBox3.setTag(2);
@@ -89,100 +91,6 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox8.setTag(7);
         mCheckBox9.setTag(8);
 
-        mImmattracteurInput.setVisibility((View.GONE));
-        mImmatremorqueInput.setVisibility(View.GONE);
-        mImmatvehiculeInput.setVisibility(View.GONE);
-        mVehicule=0;
-
-        mCheckBox1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.VISIBLE);
-                mImmatvehiculeInput.setVisibility(View.GONE);
-                mVehicule=1;
-            }
-        });
-
-        mCheckBox2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.VISIBLE);
-                mImmatvehiculeInput.setVisibility(View.GONE);
-                mVehicule=2;
-            }
-        });
-
-        mCheckBox3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.VISIBLE);
-                mImmatvehiculeInput.setVisibility(View.GONE);
-                mVehicule=3;
-            }
-        });
-
-        mCheckBox4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.VISIBLE);
-                mImmatvehiculeInput.setVisibility(View.GONE);
-                mVehicule=4;
-            }
-        });
-
-        mCheckBox5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.VISIBLE);
-                mImmatremorqueInput.setVisibility(View.VISIBLE);
-                mImmatvehiculeInput.setVisibility(View.GONE);
-                mVehicule=5;
-            }
-        });
-
-        mCheckBox6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.GONE);
-                mImmatremorqueInput.setVisibility(View.GONE);
-                mImmatvehiculeInput.setVisibility(View.VISIBLE);
-                mVehicule=6;
-            }
-        });
-
-        mCheckBox7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.GONE);
-                mImmatremorqueInput.setVisibility(View.GONE);
-                mImmatvehiculeInput.setVisibility(View.VISIBLE);
-                mVehicule=7;
-            }
-        });
-
-        mCheckBox8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.GONE);
-                mImmatremorqueInput.setVisibility(View.GONE);
-                mImmatvehiculeInput.setVisibility(View.VISIBLE);
-                mVehicule=8;
-            }
-        });
-
-        mCheckBox9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.GONE);
-                mImmatremorqueInput.setVisibility(View.GONE);
-                mImmatvehiculeInput.setVisibility(View.VISIBLE);
-                mVehicule=9;
-            }
-        });
 
         ArrayVehicule.add(mCheckBox1);
         ArrayVehicule.add(mCheckBox2);
@@ -194,6 +102,112 @@ public class MainActivity extends AppCompatActivity {
         ArrayVehicule.add(mCheckBox8);
         ArrayVehicule.add(mCheckBox9);
 
+        mImmattracteurInput.setVisibility((View.GONE));
+        mImmatremorqueInput.setVisibility(View.GONE);
+        mImmatvehiculeInput.setVisibility(View.GONE);
+        mVehicule=0;
+
+
+
+        mCheckBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=1;
+                OneChoice();
+            }
+        });
+
+
+        mCheckBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=2;
+                OneChoice();
+            }
+        });
+
+        mCheckBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=3;
+                OneChoice();
+            }
+        });
+
+        mCheckBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=4;
+                OneChoice();
+            }
+        });
+
+        mCheckBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
+                mVehicule=5;
+                OneChoice();
+            }
+        });
+
+        mCheckBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=6;
+                OneChoice();
+            }
+        });
+
+        mCheckBox7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=7;
+                OneChoice();
+            }
+        });
+
+        mCheckBox8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=8;
+                OneChoice();
+            }
+        });
+
+        mCheckBox9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=9;
+                OneChoice();
+            }
+        });
 
             mImmatremorqueInput.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -241,11 +255,13 @@ public class MainActivity extends AppCompatActivity {
                 String prenom = mPrenomInput.getText().toString();
                 String immattracteur = mImmattracteurInput.getText().toString();
                 String immatremorque = mImmatremorqueInput.getText().toString();
+                String immatvehicule=mImmatvehiculeInput.getText().toString();
 
                 mUser.setFirstname(prenom);
                 mUser.setNom(nom);
                 mUser.setImmattracteur(immattracteur);
                 mUser.setImmatremorque(immatremorque);
+                mUser.setImmatvehicule(immatvehicule);
 
                 // User clicked the button
 
@@ -256,6 +272,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void OneChoice(){
+        for(i=0;i<ArrayVehicule.size();i++){
+            if(mVehicule==i+1){
+                for(k=0;k<ArrayVehicule.size();k++){
+                    if(k!=i){
+                        (ArrayVehicule.get(k)).setChecked(false);
+                    }
+
+                }
+            }
+        }
     }
 
     @Override

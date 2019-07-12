@@ -5,6 +5,7 @@ public class User {
     private String mNom;
     private String mImmattracteur;
     private String mImmatremorque;
+    private String mImmatvehicule;
 
     public User() {
     }
@@ -14,6 +15,20 @@ public class User {
         mNom = nom;
         mImmattracteur = immattracteur;
         mImmatremorque = immatremorque;
+    }
+
+    public String getImmatvehicule() {
+        return mImmatvehicule;
+    }
+
+    public void setImmatvehicule(String immatvehicule) {
+        mImmatvehicule = immatvehicule;
+    }
+
+    public User(String prenom, String nom, String immatvehicule) {
+        mPrenom = prenom;
+        mNom = nom;
+        mImmatvehicule = immatvehicule;
     }
 
     public String getNom() {
