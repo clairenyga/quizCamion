@@ -347,13 +347,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 ListData.add((String)(myArrayList.get(b)).getText());
             }
         }
-
+    if(ListData.isEmpty()){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Voici les problèmes signalés:")
-                //.setMessage("Your score is " + mScore)
-                .setMessage("" +
-                        ""+ListData)
+        builder.setTitle("Vous n'avez signalé aucun problème sur votre véhicule!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -367,6 +364,29 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 .setCancelable(false)
                 .create()
                 .show();
+
+    }
+    else {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Voici les problèmes signalés:")
+                //.setMessage("Your score is " + mScore)
+                .setMessage("" +
+                        "" + ListData)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // End the activity
+                        Intent intent = new Intent();
+                        //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                })
+                .setCancelable(false)
+                .create()
+                .show();
+        }
     }
 
     private void startQuiz(){
