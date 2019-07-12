@@ -224,6 +224,42 @@
         android:textSize="20sp"
         android:text="CheckBox23" />
 
+    <CheckBox
+        android:id="@+id/checkBox24"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:text="CheckBox24" />
+
+    <CheckBox
+        android:id="@+id/checkBox25"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:text="CheckBox25" />
+
+    <CheckBox
+        android:id="@+id/checkBox26"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:text="CheckBox26" />
+
+    <CheckBox
+        android:id="@+id/checkBox27"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:text="CheckBox27" />
+
     <Button
         android:id="@+id/activity_tour_camion_next_btn"
         android:layout_width="50mm"

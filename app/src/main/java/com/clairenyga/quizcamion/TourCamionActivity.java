@@ -54,6 +54,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CheckBox mCheckBox21;
     private CheckBox mCheckBox22;
     private CheckBox mCheckBox23;
+    private CheckBox mCheckBox24;
+    private CheckBox mCheckBox25;
+    private CheckBox mCheckBox26;
+    private CheckBox mCheckBox27;
     private Button mNextButton;
 
 
@@ -105,15 +109,15 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         if(mVehicule==5){
             mQuestionBank = this.generateQuestions5();
         }
-        /**if(mVehicule==6){
+        if(mVehicule==6){
             mQuestionBank = this.generateQuestions6();
         }
         if(mVehicule==7){
             mQuestionBank = this.generateQuestions7();
         }
-        if(mVehicule==8){
+        if(mVehicule==8) {
             mQuestionBank = this.generateQuestions8();
-        }*/
+        }
         if(mVehicule==9){
             mQuestionBank = this.generateQuestions9();
         }
@@ -181,6 +185,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox21 = findViewById(R.id.checkBox21);
         mCheckBox22 = findViewById(R.id.checkBox22);
         mCheckBox23 = findViewById(R.id.checkBox23);
+        mCheckBox24 = findViewById(R.id.checkBox24);
+        mCheckBox25 = findViewById(R.id.checkBox25);
+        mCheckBox26 = findViewById(R.id.checkBox26);
+        mCheckBox27 = findViewById(R.id.checkBox27);
         mNextButton = findViewById(R.id.activity_tour_camion_next_btn);
 
         // Use the tag property to 'name' the buttons
@@ -207,6 +215,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox21.setTag(20);
         mCheckBox22.setTag(21);
         mCheckBox23.setTag(22);
+        mCheckBox24.setTag(23);
+        mCheckBox25.setTag(24);
+        mCheckBox26.setTag(25);
+        mCheckBox27.setTag(26);
 
         mCheckBox1.setOnClickListener(this);
         mCheckBox2.setOnClickListener(this);
@@ -231,6 +243,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox21.setOnClickListener(this);
         mCheckBox22.setOnClickListener(this);
         mCheckBox23.setOnClickListener(this);
+        mCheckBox24.setOnClickListener(this);
+        mCheckBox25.setOnClickListener(this);
+        mCheckBox26.setOnClickListener(this);
+        mCheckBox27.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
 
         myArrayList.add(mCheckBox1);
@@ -256,6 +272,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         myArrayList.add(mCheckBox21);
         myArrayList.add(mCheckBox22);
         myArrayList.add(mCheckBox23);
+        myArrayList.add(mCheckBox24);
+        myArrayList.add(mCheckBox25);
+        myArrayList.add(mCheckBox26);
+        myArrayList.add(mCheckBox27);
 
 
         mNextButton.setEnabled(false);
@@ -389,84 +409,125 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions1() {
-        Question question1 = new Question("Vérification de l'état de du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                         "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        Question question1=new Question("Vérification de l'état du tracteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                    "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
+     Question question2 = new Question("Vérification de l'état de la remorque bachée",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                                  "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Aile droite endommagée","Aile gauche endommagée","Bache endommagée",
+                       "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                        null,null,null,null,null,null,null,null,null,null));
 
-        Question question2 = new Question("Verification de l'état de la remorque bachée",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",
-                        "Les portes ne se ferment pas correctement",null,null));
 
-
-        return new QuestionBank(Arrays.asList(question1,
-                question2));
+        return new QuestionBank(Arrays.asList(question1,question2));
     }
 
+
     private QuestionBank generateQuestions2() {
-        Question question1 = new Question("Vérification de l'état du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        Question question1=new Question("Vérification de l'état du tracteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
 
-        Question question2 = new Question("Verification de l'état de la remorque avec hayon",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée","Bache endommagée",
-                        "Les portes ne se ferment pas correctement","fuite au niveau du toit","hayon défaillant"));
+        Question question2 = new Question("Vérification de l'état de la remorque avec hayon",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                                  "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Aile droite endommagée","Aile gauche endommagée","Bache endommagée",
+                       "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                             "Hayon défaillant","Télécommande du hayon manquante","Clé hayon manquante","Cône de sécurité manquant","Validation du Hayon expiré",
+                             "Il y a une fuite d'huile au niveau du hayon",null,null,null,null));
 
 
-        return new QuestionBank(Arrays.asList(question1,
-                question2));
+        return new QuestionBank(Arrays.asList(question1,question2));
     }
 
     private QuestionBank generateQuestions3(){
-        Question question1 = new Question("Vérification de l'état du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
-        return new QuestionBank(Arrays.asList(question1));
-        //attention Q2 manquante
+        Question question1=new Question("Vérification de l'état du tracteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                    "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
+     Question question2 = new Question("Vérification de l'état de la remorque benne",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                                  "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Aile droite endommagée","Aile gauche endommagée","Bache endommagée",
+                      "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                        null,null,null,null,null,null,null,null,null,null,null));
+
+        return new QuestionBank(Arrays.asList(question1,question2));
+
     }
 
     private QuestionBank generateQuestions4(){
-        Question question1 = new Question("Vérification de l'état du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
-        return new QuestionBank(Arrays.asList(question1));
-        //attention Q2 manquante
+        Question question1=new Question("Vérification de l'état du tracteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                    "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
+     Question question2 = new Question("Vérification de l'état de la remorque porte-conteneur",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                                  "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Aile droite endommagée","Aile gauche endommagée",
+                            "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                            "Twistlock manquant","Prise conteneur manquante",null,null,null,null,null,null,null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1,question2));
+
     }
 
     private QuestionBank generateQuestions5(){
-        Question question1 = new Question("Vérification de l'état du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",null,null,null,null));
+        Question question1=new Question("Vérification de l'état du tracteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
+     Question question2 = new Question("Vérification de l'état de la remorque citerne",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                                  "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Aile droite endommagée","Aile gauche endommagée","Cône de sécurité manquant",
+                       "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                        null,null,null,null,null,null,null,null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1,question2));
+
+    }
+
+    private QuestionBank generateQuestions6(){
+        Question question1=new Question("Vérification de l'état de la toupie",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée","Truelle manquante","Massette manquante","Brosse de lavage manquante","Girophare cassé",
+                     "Flacheur cassé","Bip de recul défaillant"));
+
         return new QuestionBank(Arrays.asList(question1));
-        //attention Q2 manquante
-    }
-
-    /**private QuestionBank generateQuestions6(){
 
     }
 
-    private QuestionBank generateQuestions7(){
+
+   private QuestionBank generateQuestions7(){
+       Question question1=new Question("Vérification de l'état du porte-voiture",
+                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                               "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                    "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                    "Aile droite endommagée","Aile gauche endommagée","Sangles manquantes","Cale manquante","Mauvais fonctionnement des plateaux",null,null,null));
+       return new QuestionBank(Arrays.asList(question1));
 
     }
 
     private QuestionBank generateQuestions8(){
+        Question question1=new Question("Vérification de l'état du Camion Grue",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                     "Aile droite endommagée","Aile gauche endommagée","Validation de la grue expirée","Girophare cassé","Bip de recule défaillant",null,null,null));
+        return new QuestionBank(Arrays.asList(question1));
+    }
 
-    }*/
 
     private QuestionBank generateQuestions9(){
-        Question question1 = new Question("Vérification de l'état de du tracteur",
-                Arrays.asList("Rien à signaler", "pneu crevé", "pneus lisses", "présence d'hernies","Il y a une fuite d'huile", "Il y a une fuite d'eau", "Il y a une fuite de gazole",
-                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
-                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                        "il y a une fuite d'huile au niveau du hayon","hayon défaillant","fuite au niveau du toit",null));
+        Question question1=new Question("Vérification de l'état du porteur",
+                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","présence de hernies","Il y a une fuite d'huile","Il y a une fuite d'eau","Il y a une fuite de gazole",
+                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                 "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                 "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1));
     }
 
