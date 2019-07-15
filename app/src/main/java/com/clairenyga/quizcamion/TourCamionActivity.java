@@ -78,6 +78,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private int mScore;
     private int mNumberOfQuestions;
     private int mVehicule;
+    private int mUrgence;
     private CharSequence mNom;
     private CharSequence mPrenom;
     private CharSequence mImmatTracteur;
@@ -404,7 +405,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
                             sendEmail();
-
                             finish();
                         }
                     })
@@ -460,6 +460,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
+                            sendEmail2();
                             finish();
                         }
                     })
@@ -477,6 +478,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .show();
         }
     }
+
 
     }
 
@@ -649,12 +651,27 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 ListData.add((String)(myArrayList.get(b)).getText());
             }
         }*/
+        if(mNumberOfQuestions==3){
+            if(myArrayList.get(1).isChecked()){
+                mUrgence=1;
+            }
+            else{
+                mUrgence=0;
+            }
+        }
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
             startQuiz();
         }
         if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&mNumberOfQuestions==1){
             startQuiz();
+            if(myArrayList.get(1).isChecked()){
+                mUrgence=1;
+            }
+            else{
+                mUrgence=0;
+            }
+
         }
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
@@ -779,6 +796,30 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             Toast.makeText(TourCamionActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
+
+    protected void sendEmail2() {
+        Log.i("Comment envoyer le mail", "");
+        String[] TO = {"clairenyga@gmail.com"};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+", mon camion ne démare pas. " +
+                "Sur le véhicule "+mImmatVehicule+" les problèmes sont: "+ListData2+".");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
+            finish();
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(TourCamionActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
     protected void onStart() {
