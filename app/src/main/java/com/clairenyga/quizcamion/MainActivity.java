@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mStartButton;
     private User mUser;
     private ArrayList<CheckBox> ArrayVehicule= new ArrayList<>();
+    private ArrayList<String> ArrayFormulaire=new ArrayList<>();
     private int mVehicule;
     public int i,k;
 
@@ -262,6 +263,16 @@ public class MainActivity extends AppCompatActivity {
                 mUser.setImmattracteur(immattracteur);
                 mUser.setImmatremorque(immatremorque);
                 mUser.setImmatvehicule(immatvehicule);
+
+                ArrayFormulaire.add(nom);
+                ArrayFormulaire.add(prenom);
+                if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
+                    ArrayFormulaire.add(immattracteur);
+                    ArrayFormulaire.add(immatremorque);
+                }
+                else{
+                    ArrayFormulaire.add(immatvehicule);
+                }
 
                 // User clicked the button
 
