@@ -1,8 +1,10 @@
 package com.clairenyga.quizcamion;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,6 +27,10 @@ import java.util.List;
 //import androidx.appcompat.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_IMMATREMORQUE;
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_IMMATTRACTEUR;
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_NOM;
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_PRENOM;
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_VEHICULE;
 import static com.clairenyga.quizcamion.MainActivity.TOUR_ACTIVITY_REQUEST_CODE;
 
@@ -72,6 +78,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private int mScore;
     private int mNumberOfQuestions;
     private int mVehicule;
+    private CharSequence mNom;
+    private CharSequence mPrenom;
+    private CharSequence mImmatTracteur;
+    private CharSequence mImmatRemorque;
+    private CharSequence mImmatVehicule;
 
     public int i, j, b;
 
@@ -96,6 +107,12 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         Intent TourActivityIntent=getIntent();
         mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
+        mNom=getIntent().getCharSequenceExtra(MainActivity.EXTRA_NOM);
+        mPrenom=getIntent().getCharSequenceExtra(MainActivity.EXTRA_PRENOM);
+        mImmatTracteur=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATTRACTEUR);
+        mImmatRemorque=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATREMORQUE);
+        mImmatVehicule=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATVEHICULE);
+
 
         if(mVehicule==1){
             mQuestionBank = this.generateQuestions1();
@@ -127,7 +144,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
         if (savedInstanceState != null) {
-            //mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
             //mScore = 0;
@@ -356,9 +372,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // End the activity
                             Intent intent = new Intent();
-                            //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
                             setResult(RESULT_OK, intent);
                             finish();
                         }
@@ -381,16 +395,16 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Voici les problèmes signalés sur votre remorque:")
-                    //.setMessage("Your score is " + mScore)
+
                     .setMessage("" +
                             "" + ListData2)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // End the activity
                             Intent intent = new Intent();
-                            //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
                             setResult(RESULT_OK, intent);
+                            sendEmail();
+
                             finish();
                         }
                     })
@@ -416,9 +430,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // End the activity
                             Intent intent = new Intent();
-                            //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
                             setResult(RESULT_OK, intent);
                             finish();
                         }
@@ -441,15 +453,12 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Voici les problèmes signalés sur votre véhicule:")
-                    //.setMessage("Your score is " + mScore)
                     .setMessage("" +
                             "" + ListData2)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // End the activity
                             Intent intent = new Intent();
-                            //intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
                             setResult(RESULT_OK, intent);
                             finish();
                         }
@@ -635,12 +644,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void manageCheckbox() {
-        //startQuiz();
-        for(b=1;b<myArrayList.size();b++){
+        /**for(b=1;b<myArrayList.size();b++){
             if((myArrayList.get(b)).isChecked()){
                 ListData.add((String)(myArrayList.get(b)).getText());
             }
-        }
+        }*/
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
             startQuiz();
@@ -651,6 +659,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
             remorqueQuiz();
+            for(b=1;b<myArrayList.size();b++){
+                if((myArrayList.get(b)).isChecked()){
+                    ListData.add((String)(myArrayList.get(b)).getText());
+                }
+            }
             if(ListData.isEmpty()){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Vous n'avez signalé aucun problème sur votre tracteur!")
@@ -741,6 +754,30 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 .setCancelable(false)
                 .create()
                 .show();
+    }
+
+    protected void sendEmail() {
+        Log.i("Comment envoyer le mail", "");
+        String[] TO = {"clairenyga@gmail.com"};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+", mon camion ne démare pas. " +
+                "Sur le tracteur "+mImmatTracteur+" les problèmes sont: "+ListData+". Sur la remorque "+mImmatRemorque+
+                " les problèmes sont: "+ListData2+".");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
+            finish();
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(TourCamionActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

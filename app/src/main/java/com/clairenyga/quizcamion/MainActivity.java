@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
     public static final int TOUR_ACTIVITY_REQUEST_CODE = 42;
     //private SharedPreferences mPreferences;
     public static final String EXTRA_VEHICULE="EXTRA_VEHICULE";
+    public static final String EXTRA_NOM="EXTRA_NOM";
+    public static final String EXTRA_PRENOM="EXTRA_PRENOM";
+    public static final String EXTRA_IMMATTRACTEUR="EXTRA_IMMATTRACTEUR";
+    public static final String EXTRA_IMMATREMORQUE="EXTRA_IMMATREMORQUE";
+    public static final String EXTRA_IMMATVEHICULE="EXTRA_IMMATVEHICULE";
     //ok2
 
     @Override
@@ -278,6 +283,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent TourActivityIntent = new Intent(MainActivity.this, TourCamionActivity.class);
                 TourActivityIntent.putExtra(EXTRA_VEHICULE,mVehicule);
+                TourActivityIntent.putExtra(EXTRA_NOM,nom);
+                TourActivityIntent.putExtra(EXTRA_PRENOM,prenom);
+                TourActivityIntent.putExtra(EXTRA_IMMATTRACTEUR,immattracteur);
+                TourActivityIntent.putExtra(EXTRA_IMMATREMORQUE,immatremorque);
+                TourActivityIntent.putExtra(EXTRA_IMMATVEHICULE,immatvehicule);
                 startActivityForResult(TourActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
             }
         });
