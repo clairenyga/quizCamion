@@ -92,7 +92,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         System.out.println("TourCamionActivity::onCreate()");
 
-        startQuiz();
+        //startQuiz();
 
         Intent TourActivityIntent=getIntent();
         mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
@@ -132,31 +132,31 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         } else {
             //mScore = 0;
             if(mVehicule==1) {
-                mNumberOfQuestions = 2;
+                mNumberOfQuestions = 3;
             }
             if(mVehicule==2){
-                mNumberOfQuestions=2;
+                mNumberOfQuestions=3;
             }
             if(mVehicule==3) {
-                mNumberOfQuestions = 2;
+                mNumberOfQuestions = 3;
             }
             if(mVehicule==4) {
-                mNumberOfQuestions = 2;
+                mNumberOfQuestions = 3;
             }
             if(mVehicule==5) {
-                mNumberOfQuestions = 2;
+                mNumberOfQuestions = 3;
             }
             if(mVehicule==6) {
-                mNumberOfQuestions = 1;
+                mNumberOfQuestions = 2;
             }
             if(mVehicule==7) {
-                mNumberOfQuestions = 1;
+                mNumberOfQuestions = 2;
             }
             if(mVehicule==8) {
-                mNumberOfQuestions = 1;
+                mNumberOfQuestions = 2;
             }
             if(mVehicule==9) {
-                mNumberOfQuestions = 1;
+                mNumberOfQuestions = 2;
             }
         }
 
@@ -318,6 +318,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             // End the game
                             endGame();
                         } else {
+                            //startQuiz();
                             manageCheckbox();
                             mCurrentQuestion = mQuestionBank.getQuestion();
                             displayQuestion(mCurrentQuestion);
@@ -492,30 +493,34 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions1() {
-        Question question1=new Question("Vérification de l'état du tracteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
-     Question question2 = new Question("Vérification de l'état de la remorque bachée",
+     Question question3 = new Question("Vérification de l'état de la remorque bachée",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
                         null,null,null,null,null,null,null,null,null,null,null));
 
 
-        return new QuestionBank(Arrays.asList(question1,question2));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
     }
 
 
     private QuestionBank generateQuestions2() {
-        Question question1=new Question("Vérification de l'état du tracteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
 
-        Question question2 = new Question("Vérification de l'état de la remorque avec hayon",
+        Question question3 = new Question("Vérification de l'état de la remorque avec hayon",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
@@ -523,106 +528,128 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                              "Fuite d'huile au niveau du hayon",null,null,null,null,null));
 
 
-        return new QuestionBank(Arrays.asList(question1,question2));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
     }
 
     private QuestionBank generateQuestions3(){
-        Question question1=new Question("Vérification de l'état du tracteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
-     Question question2 = new Question("Vérification de l'état de la remorque benne",
+     Question question3 = new Question("Vérification de l'état de la remorque benne",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                       "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
                         null,null,null,null,null,null,null,null,null,null,null,null));
 
-        return new QuestionBank(Arrays.asList(question1,question2));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
 
     private QuestionBank generateQuestions4(){
-        Question question1=new Question("Vérification de l'état du tracteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
-     Question question2 = new Question("Vérification de l'état de la remorque porte-conteneur",
+     Question question3 = new Question("Vérification de l'état de la remorque porte-conteneur",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées",
                             "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
                             "Twistlock manquant","Prise conteneur manquante",null,null,null,null,null,null,null,null,null,null,null));
-        return new QuestionBank(Arrays.asList(question1,question2));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
 
     private QuestionBank generateQuestions5(){
-        Question question1=new Question("Vérification de l'état du tracteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
-     Question question2 = new Question("Vérification de l'état de la remorque citerne",
+     Question question3 = new Question("Vérification de l'état de la remorque citerne",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Cône de sécurité manquant",
                        "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
                         null,null,null,null,null,null,null,null,null,null,null,null));
-        return new QuestionBank(Arrays.asList(question1,question2));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
 
     private QuestionBank generateQuestions6(){
-        Question question1=new Question("Vérification de l'état de la toupie",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état de la toupie",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée","Truelle manquante","Massette manquante","Brosse de lavage manquante","Girophare cassé",
                      "Flacheur cassé","Bip de recul défaillant","Caméra de recul cassée"));
 
-        return new QuestionBank(Arrays.asList(question1));
+        return new QuestionBank(Arrays.asList(question1,question2));
 
     }
 
 
    private QuestionBank generateQuestions7(){
-       Question question1=new Question("Vérification de l'état du porte-voiture",
+       Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+               null,null,null,null,null,null,null,null,null));
+       Question question2=new Question("Vérification de l'état du porte-voiture",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                     "Aile droite endommagée","Aile gauche endommagée","Sangles manquantes","Cale manquante","Mauvais fonctionnement des plateaux",null,null,null,null));
-       return new QuestionBank(Arrays.asList(question1));
+       return new QuestionBank(Arrays.asList(question1,question2));
 
     }
 
     private QuestionBank generateQuestions8(){
-        Question question1=new Question("Vérification de l'état du Camion Grue",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du Camion Grue",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée","Validation de la grue expirée","Girophare cassé","Bip de recule défaillant","Caméra de recul cassée","Fuite sur la grue",null,null));
-        return new QuestionBank(Arrays.asList(question1));
+        return new QuestionBank(Arrays.asList(question1,question2));
     }
 
 
     private QuestionBank generateQuestions9(){
-        Question question1=new Question("Vérification de l'état du porteur",
+        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du porteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                  "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                  "Aile droite endommagée","Aile gauche endommagée","Les portes ne se ferment pas correctement","Hayon défaillant","Télécommande du hayon manquante","Clé hayon manquante","Cône de sécurité manquant",
                          "Validation du Hayon expiré","Fuite d'huile au niveau du hayon"));
-        return new QuestionBank(Arrays.asList(question1));
+        return new QuestionBank(Arrays.asList(question1,question2));
     }
 
     private void manageCheckbox() {
+        //startQuiz();
         for(b=1;b<myArrayList.size();b++){
             if((myArrayList.get(b)).isChecked()){
                 ListData.add((String)(myArrayList.get(b)).getText());
             }
         }
 
-        if(mNumberOfQuestions==1){
+        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
+            startQuiz();
+        }
+        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&mNumberOfQuestions==1){
+            startQuiz();
+        }
+
+        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
             remorqueQuiz();
             if(ListData.isEmpty()){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -683,7 +710,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private void startQuiz(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("IMPORATANT:")
+        builder.setTitle("IMPORTANT:")
                 .setMessage("Afin de répondre correctement au questionnaire, vous devez faire un tour complet du véhicule, y compris regarder en dessous de celui-ci avant de prendre la route." +
                         "De plus, vous devez impérativement vérifier que vous êtes en possession:" +
                         "De la carte grise du tracteur,..." )
@@ -702,7 +729,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private void remorqueQuiz(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("IMPORATANT:")
+        builder.setTitle("IMPORTANT:")
                 .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession:" +
                         "De la carte grise du tracteur,..." )
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
