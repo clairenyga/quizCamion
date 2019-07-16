@@ -97,6 +97,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public ArrayList<String>ListData2=new ArrayList<>();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -504,7 +505,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions1() {
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -523,7 +524,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
     private QuestionBank generateQuestions2() {
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -543,7 +544,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions3(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -561,7 +562,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions4(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -578,7 +579,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions5(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -595,7 +596,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions6(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état de la toupie",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -610,7 +611,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
    private QuestionBank generateQuestions7(){
-       Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+       Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                null,null,null,null,null,null,null,null,null));
        Question question2=new Question("Vérification de l'état du porte-voiture",
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -622,7 +623,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private QuestionBank generateQuestions8(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du Camion Grue",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -634,7 +635,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
     private QuestionBank generateQuestions9(){
-        Question question1=new Question("Est-ce que votre camion roule?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
                 null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du porteur",
                  Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
@@ -738,51 +739,136 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 }
     private void startQuiz(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("IMPORTANT:")
-                .setMessage("Afin de répondre correctement au questionnaire, vous devez faire un tour complet du véhicule, y compris regarder en dessous de celui-ci avant de prendre la route." +
-                        "De plus, vous devez impérativement vérifier que vous êtes en possession:" +
-                        "De la carte grise du tracteur,..." )
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .setCancelable(false)
-                .create()
-                .show();
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce tracteur, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois)")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==7){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois)")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==8){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle de la grue et le PV des mines (si le véhicule est luxembourgeois)")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==9){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois)")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
     }
 
     private void remorqueQuiz(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(mVehicule==1||mVehicule==3||mVehicule==4||mVehicule==5){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("IMPORTANT:")
-                .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession:" +
-                        "De la carte grise du tracteur,..." )
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .setCancelable(false)
-                .create()
-                .show();
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession:" +
+                            "De la carte grise, l'assurance et le PV des mines (si le véhicule est luxembourgeois)" )
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==2){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession:" +
+                            "De la carte grise, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois)" )
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+
     }
 
     protected void sendEmail() {
         Log.i("Comment envoyer le mail", "");
-        String[] TO = {"clairenyga@gmail.com"};
-        String[] CC = {""};
+        String[]TO={"romain.jacquemart@di-egidio.com","yasin.gurbuz@di-egidio.com","franco.dicerto@di-egidio.com","atelier@di-egidio.com"};
+        String[] CC = {"gauthier.lesser@di-egidio.com"};
+        String[]CC2={"gauthier.lesser@di-egidio.com","gregory.imhoff@di-egidio.com"};
+        String[]CC3={"gauthier.lesser@di-egidio.com","gauthier.laborde@di-egidio.com","vincent.lepetit@di-egidio.com"};
+        String[]CC4 = {"gauthier.laborde@di-egidio.com"};
+        String[]CC5={"gauthier.lesser@di-egidio.com","vincent.lepetit@di-egidio.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        if(mVehicule==1){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        }
+        if(mVehicule==2){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC2);
+        }
+        if(mVehicule==3){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC3);
+        }
+        if(mVehicule==4){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC4);
+        }
+        if(mVehicule==5){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC5);
+        }
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+", mon camion ne démare pas. " +
                 "Sur le tracteur "+mImmatTracteur+" les problèmes sont: "+ListData+". Sur la remorque "+mImmatRemorque+
@@ -799,13 +885,24 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     protected void sendEmail2() {
         Log.i("Comment envoyer le mail", "");
-        String[] TO = {"clairenyga@gmail.com"};
-        String[] CC = {""};
+        String[]TO={"romain.jacquemart@di-egidio.com","yasin.gurbuz@di-egidio.com","franco.dicerto@di-egidio.com","atelier@di-egidio.com"};
+        String[]CC = {"gauthier.laborde@di-egidio.com"};
+        String[]CC2={"gauthier.lesser@di-egidio.com","vincent.lepetit@di-egidio.com"};
+        String[]CC3={"gauthier.lesser@di-egidio.com","gauthier.laborde@di-egidio.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        if(mVehicule==6||mVehicule==7){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        }
+        if(mVehicule==8){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC2);
+        }
+        if(mVehicule==9){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC3);
+        }
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+", mon camion ne démare pas. " +

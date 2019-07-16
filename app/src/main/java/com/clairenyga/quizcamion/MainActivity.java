@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.clairenyga.quizcamion.model.User;
 //import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_IMMATVEHICULE="EXTRA_IMMATVEHICULE";
     //ok2
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         mStartButton = findViewById(R.id.activity_main_play_btn);
 
         mStartButton.setEnabled(false);
+
 
         //ok3
 

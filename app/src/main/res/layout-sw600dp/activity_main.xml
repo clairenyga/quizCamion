@@ -16,6 +16,7 @@
         android:textSize="20sp"
         android:text="Bonjour, nous allons commencer le tour du camion!" />
 
+
     <EditText
         android:id="@+id/activity_main_nom_input"
         android:layout_width="match_parent"
