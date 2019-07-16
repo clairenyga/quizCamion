@@ -78,7 +78,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private int mScore;
     private int mNumberOfQuestions;
     private int mVehicule;
-    private int mUrgence;
+    public int mUrgence;
     private CharSequence mNom;
     private CharSequence mPrenom;
     private CharSequence mImmatTracteur;
@@ -367,7 +367,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
         }
     if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
-        if(ListData2.isEmpty()&&ListData.isEmpty()){
+        if((ListData2.isEmpty()==true)&&(ListData.isEmpty()==true)){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Vous n'avez signalé aucun problème sur votre remorque!")
@@ -393,7 +393,34 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         }
 
-        if(ListData!=null&&ListData2!=null){
+        if((ListData2.isEmpty()==true)&&(ListData.isEmpty()==false)){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("Vous n'avez signalé aucun problème sur votre remorque!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent();
+                            setResult(RESULT_OK, intent);
+                            sendEmail();
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent MainActivityIntent = new Intent(TourCamionActivity.this, MainActivity.class);
+                            startActivityForResult(MainActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
+
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+
+        }
+
+        if((ListData.isEmpty()==false)&&(ListData2.isEmpty()==false)){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Voici les problèmes signalés sur votre remorque:")
@@ -422,7 +449,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .create()
                     .show();
         }
-        if(ListData.isEmpty()&&ListData2!=null){
+        if((ListData.isEmpty()==true)&&(ListData2.isEmpty()==false)){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Voici les problèmes signalés sur votre remorque:")
@@ -453,7 +480,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         }
     }
     else{
-        if(ListData2.isEmpty()){
+        if(ListData2.isEmpty()==true){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Vous n'avez signalé aucun problème sur votre véhicule!")
@@ -479,7 +506,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         }
 
-        else {
+        if(ListData2.isEmpty()==false){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("Voici les problèmes signalés sur votre véhicule:")
@@ -681,27 +708,32 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 ListData.add((String)(myArrayList.get(b)).getText());
             }
         }*/
-        if(mNumberOfQuestions==3){
-            if(myArrayList.get(1).isChecked()){
-                mUrgence=1;
-            }
-            else{
+        /**if(mNumberOfQuestions==3){
+            if(myArrayList.get(0).isChecked()){
                 mUrgence=0;
             }
-        }
+            else{
+                mUrgence=1;
+            }
+        }*/
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
-            startQuiz();
-        }
-        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&mNumberOfQuestions==1){
-            startQuiz();
-            if(myArrayList.get(1).isChecked()){
-                mUrgence=1;
-            }
-            else{
+            if(myArrayList.get(0).isChecked()){
                 mUrgence=0;
             }
-
+            else{
+                mUrgence=1;
+            }
+            startQuiz();
+        }
+        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&(mNumberOfQuestions==1)){
+            if(myArrayList.get(0).isChecked()){
+                mUrgence=0;
+            }
+            else{
+                mUrgence=1;
+            }
+            startQuiz();
         }
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
@@ -898,7 +930,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         if(mVehicule==5){
             emailIntent.putExtra(Intent.EXTRA_CC, CC5);
         }
-        if(ListData!=null&&ListData2!=null){
+        if((ListData.isEmpty()==false)&&(ListData2.isEmpty()==false)){
             if(mUrgence==1){
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+" et  mon camion n'est pas en état de rouler. " +
@@ -912,7 +944,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         " les problèmes sont: "+ListData2+".");
             }
         }
-        if(ListData!=null&&ListData2==null){
+        if((ListData.isEmpty()==false)&&(ListData2.isEmpty()==true)){
             if(mUrgence==1){
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+" et  mon camion n'est pas en état de rouler. " +
@@ -924,7 +956,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         "Cependant, sur le tracteur "+mImmatTracteur+" les problèmes sont: "+ListData+".");
             }
         }
-        if(ListData==null&&ListData2!=null){
+        if((ListData.isEmpty()==true)&&(ListData2.isEmpty()==false)){
             if(mUrgence==1){
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+" et  mon camion n'est pas en état de rouler. " +
@@ -975,7 +1007,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         if(mUrgence==0){
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Problème véhicule");
             emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+" et mon camion est en état de rouler. " +
-                    "Cependant, sur le véhicule "+mImmatTracteur+" les problèmes sont: "+ListData2+".");
+                    "Cependant, sur le véhicule "+mImmatVehicule+" les problèmes sont: "+ListData2+".");
         }
 
         try {
