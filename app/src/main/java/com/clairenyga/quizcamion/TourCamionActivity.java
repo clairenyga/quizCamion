@@ -1,6 +1,5 @@
 package com.clairenyga.quizcamion;
 
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -106,7 +105,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public ArrayList<CheckBox> myArrayList = new ArrayList<>();
     public ArrayList<String>ListData=new ArrayList<>();
     public ArrayList<String>ListData2=new ArrayList<>();
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
