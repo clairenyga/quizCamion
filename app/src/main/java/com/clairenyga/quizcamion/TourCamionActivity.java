@@ -1,13 +1,22 @@
 package com.clairenyga.quizcamion;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.clairenyga.quizcamion.R;
 //import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +29,8 @@ import com.clairenyga.quizcamion.model.Question;
 import com.clairenyga.quizcamion.model.QuestionBank;
 import com.clairenyga.quizcamion.MainActivity;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -95,13 +106,13 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public ArrayList<CheckBox> myArrayList = new ArrayList<>();
     public ArrayList<String>ListData=new ArrayList<>();
     public ArrayList<String>ListData2=new ArrayList<>();
-
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_camion);
+
 
         System.out.println("TourCamionActivity::onCreate()");
 
@@ -306,6 +317,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mNextButton.setEnabled(false);
         mCurrentQuestion = mQuestionBank.getQuestion();
         this.displayQuestion(mCurrentQuestion);
+
     }
 
     @Override
@@ -314,7 +326,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         super.onSaveInstanceState(outState);
     }
 
-    @Override
+
+        @Override
     public void onClick(View v) {
         int responseIndex = (int) v.getTag();
 
@@ -703,19 +716,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void manageCheckbox() {
-        /**for(b=1;b<myArrayList.size();b++){
-            if((myArrayList.get(b)).isChecked()){
-                ListData.add((String)(myArrayList.get(b)).getText());
-            }
-        }*/
-        /**if(mNumberOfQuestions==3){
-            if(myArrayList.get(0).isChecked()){
-                mUrgence=0;
-            }
-            else{
-                mUrgence=1;
-            }
-        }*/
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
             if(myArrayList.get(0).isChecked()){
@@ -931,11 +931,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             emailIntent.putExtra(Intent.EXTRA_CC, CC5);
         }
         if((ListData.isEmpty()==false)&&(ListData2.isEmpty()==false)){
-            if(mUrgence==1){
+            if(mUrgence==1) {
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "URGENCE CAMION");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis "+mNom+" "+mPrenom+" et  mon camion n'est pas en état de rouler. " +
-                        "Sur le tracteur "+mImmatTracteur+" les problèmes sont: "+ListData+". Sur la remorque "+mImmatRemorque+
-                        " les problèmes sont: "+ListData2+".");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Bonjour, je suis " + mNom + " " + mPrenom + " et  mon camion n'est pas en état de rouler. " +
+                        "Sur le tracteur " + mImmatTracteur + " les problèmes sont: " + ListData + ". Sur la remorque " + mImmatRemorque +
+                        " les problèmes sont: " + ListData2 + ".");
             }
             if(mUrgence==0){
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Problème véhicule");

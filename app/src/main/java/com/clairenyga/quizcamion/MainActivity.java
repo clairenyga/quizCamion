@@ -1,6 +1,7 @@
 package com.clairenyga.quizcamion;
 
 import android.content.DialogInterface;
+import android.os.Environment;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
@@ -13,10 +14,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import com.clairenyga.quizcamion.model.User;
 //import androidx.appcompat.app.AppCompatActivity;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static java.lang.System.out;
@@ -57,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_IMMATREMORQUE="EXTRA_IMMATREMORQUE";
     public static final String EXTRA_IMMATVEHICULE="EXTRA_IMMATVEHICULE";
     //ok2
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -330,7 +333,6 @@ public class MainActivity extends AppCompatActivity {
 
         out.println("MainActivity::onPause()");
     }
-
     @Override
     protected void onStop() {
         super.onStop();
