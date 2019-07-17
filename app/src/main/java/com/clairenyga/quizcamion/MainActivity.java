@@ -318,7 +318,6 @@ public class MainActivity extends AppCompatActivity {
 
         out.println("MainActivity::onStart()");
     }
-
     @Override
     protected void onResume() {
         super.onResume();
