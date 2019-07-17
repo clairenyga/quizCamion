@@ -324,7 +324,6 @@ public class MainActivity extends AppCompatActivity {
 
         out.println("MainActivity::onResume()");
     }
-
     @Override
     protected void onPause() {
         super.onPause();
