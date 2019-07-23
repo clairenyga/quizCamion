@@ -222,41 +222,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-            mImmatremorqueInput.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    mStartButton.setEnabled(s.toString().length() != 0);
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
-
-
-
-            mImmatvehiculeInput.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    mStartButton.setEnabled(s.toString().length() != 0);
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
+        mNomInput.addTextChangedListener(InfoAccueilWatcher);
+        mPrenomInput.addTextChangedListener(InfoAccueilWatcher);
+        mImmattracteurInput.addTextChangedListener(InfoAccueilWatcher);
+        mImmatremorqueInput.addTextChangedListener(InfoAccueilWatcher);
+        mImmatvehiculeInput.addTextChangedListener(InfoAccueilWatcher);
 
 
         //ok4
@@ -314,6 +284,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    private TextWatcher InfoAccueilWatcher=new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String nomInput=mNomInput.getText().toString().trim();
+            String prenomInput=mPrenomInput.getText().toString().trim();
+            String immatTracteurInput=mImmattracteurInput.getText().toString().trim();
+            String immatRemorqueInput=mImmatremorqueInput.getText().toString().trim();
+            String immatVehiculeInput=mImmatvehiculeInput.getText().toString().trim();
+            mStartButton.setEnabled((!nomInput.isEmpty() && !prenomInput.isEmpty() && !immatTracteurInput.isEmpty() && !immatRemorqueInput.isEmpty())||
+                    (!nomInput.isEmpty() && !prenomInput.isEmpty() && !immatVehiculeInput.isEmpty()));
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     @Override
     protected void onStart() {

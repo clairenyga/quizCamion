@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="50dp"
+        android:padding="25dp"
         android:textAlignment="center"
         android:textSize="20sp"
         android:text="Bonjour, nous allons commencer le tour du camion!" />
+
 
     <EditText
         android:id="@+id/activity_main_nom_input"
@@ -52,7 +53,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec remorque bachée" />
+        android:text="Un tracteur avec une remorque bachée" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -61,7 +62,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec hayon" />
+        android:text="Un tracteur avec une remorque hayon" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -70,7 +71,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec une benne" />
+        android:text="Un tracteur avec une remorque benne" />
 
     <CheckBox
         android:id="@+id/checkBox4"
@@ -79,7 +80,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec un porte-conteneur" />
+        android:text="Un tracteur avec une remorque porte-conteneur" />
 
     <CheckBox
         android:id="@+id/checkBox5"
@@ -88,7 +89,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec une citerne" />
+        android:text="Un tracteur avec une remorque citerne" />
 
     <CheckBox
         android:id="@+id/checkBox6"
@@ -146,15 +147,26 @@
         android:hint="Immatriculation de la remorque"
         />
 
-    <Button
-        android:id="@+id/activity_main_play_btn"
-        android:layout_width="50mm"
+    <EditText
+        android:id="@+id/activity_main_immatvehicule_input"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:text="Commençons"
-        android:textAlignment="center"
+        android:textSize="20sp"
+        android:hint="Immatriculation du véhicule"
+        />
+
+    <Button
+        android:id="@+id/activity_main_play_btn"
+        android:layout_width="50mm"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp" />
+        android:layout_marginTop="0dp"
+        android:padding="5dp"
+        android:textSize="20dp"
+        android:text="Commençons" />
 
 </LinearLayout>

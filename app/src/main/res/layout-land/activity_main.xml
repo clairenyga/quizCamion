@@ -52,7 +52,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec remorque bachée" />
+        android:text="Un tracteur avec une remorque bachée" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -61,7 +61,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec hayon" />
+        android:text="Un tracteur avec une remorque hayon" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -70,7 +70,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec une benne" />
+        android:text="Un tracteur avec une remorque benne" />
 
     <CheckBox
         android:id="@+id/checkBox4"
@@ -79,7 +79,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec un porte-conteneur" />
+        android:text="Un tracteur avec une remorque porte-conteneur" />
 
     <CheckBox
         android:id="@+id/checkBox5"
@@ -88,7 +88,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="20sp"
-        android:text="Un tracteur avec une citerne" />
+        android:text="Un tracteur avec une remorque citerne" />
 
     <CheckBox
         android:id="@+id/checkBox6"

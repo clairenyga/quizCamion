@@ -389,6 +389,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
                             finish();
+                            /**Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
+                            startActivityForResult(PhotoActivityIntent,0);*/
                         }
                     })
                     .setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
