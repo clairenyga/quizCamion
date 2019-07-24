@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="CheckBox1" />
+        android:text="CheckBox1"
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -47,17 +47,17 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="CheckBox3" />
+        android:text="CheckBox3"
+        android:textSize="18sp" />
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="CheckBox4" />
+     <CheckBox
+         android:id="@+id/checkBox4"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:layout_weight="1"
+         android:text="CheckBox4"
+         android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBox5"
@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="CheckBox5" />
+        android:text="CheckBox5"
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBox6"
@@ -258,13 +258,22 @@
         android:text="CheckBox26" />
 
     <CheckBox
-        android:id="@+id/checkBox27"
+    android:id="@+id/checkBox27"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:layout_weight="1"
+    android:textSize="18sp"
+    android:text="CheckBox27" />
+
+    <CheckBox
+        android:id="@+id/checkBox28"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:textSize="18sp"
-        android:text="CheckBox27" />
+        android:text="CheckBox28" />
 
     <Button
         android:id="@+id/activity_tour_camion_next_btn"

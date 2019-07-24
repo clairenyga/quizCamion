@@ -39,6 +39,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_IMMATREMORQUE;
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_IMMATTRACTEUR;
+import static com.clairenyga.quizcamion.MainActivity.EXTRA_IMMATVEHICULE;
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_NOM;
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_PRENOM;
 import static com.clairenyga.quizcamion.MainActivity.EXTRA_VEHICULE;
@@ -94,6 +95,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CharSequence mImmatTracteur;
     private CharSequence mImmatRemorque;
     private CharSequence mImmatVehicule;
+    private int send;
 
     public int i, j, b;
 
@@ -123,7 +125,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mPrenom=getIntent().getCharSequenceExtra(MainActivity.EXTRA_PRENOM);
         mImmatTracteur=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATTRACTEUR);
         mImmatRemorque=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATREMORQUE);
-        mImmatVehicule=getIntent().getCharSequenceExtra(MainActivity.EXTRA_IMMATVEHICULE);
+        mImmatVehicule=getIntent().getCharSequenceExtra(EXTRA_IMMATVEHICULE);
 
 
         if(mVehicule==1){
@@ -389,8 +391,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
                             finish();
-                            /**Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
-                            startActivityForResult(PhotoActivityIntent,0);*/
                         }
                     })
                     .setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
@@ -416,7 +416,20 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
-                            sendEmail();
+                            send=1;
+                            Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData",ListData);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData2",ListData2);
+                            PhotoActivityIntent.putExtra("mUrgence",mUrgence);
+                            PhotoActivityIntent.putExtra("mVehicule",mVehicule);
+                            PhotoActivityIntent.putExtra("mNom",mNom);
+                            PhotoActivityIntent.putExtra("mPrenom",mPrenom);
+                            PhotoActivityIntent.putExtra("mImmatTracteur",mImmatTracteur);
+                            PhotoActivityIntent.putExtra("mImmatRemorque",mImmatRemorque);
+                            PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
+                            PhotoActivityIntent.putExtra("send",send);
+                            startActivityForResult(PhotoActivityIntent,0);
+                            //sendEmail();
                             finish();
                         }
                     })
@@ -446,7 +459,20 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
-                            sendEmail();
+                            send=1;
+                            Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData",ListData);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData2",ListData2);
+                            PhotoActivityIntent.putExtra("mUrgence",mUrgence);
+                            PhotoActivityIntent.putExtra("mVehicule",mVehicule);
+                            PhotoActivityIntent.putExtra("mNom",mNom);
+                            PhotoActivityIntent.putExtra("mPrenom",mPrenom);
+                            PhotoActivityIntent.putExtra("mImmatTracteur",mImmatTracteur);
+                            PhotoActivityIntent.putExtra("mImmatRemorque",mImmatRemorque);
+                            PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
+                            PhotoActivityIntent.putExtra("send",send);
+                            startActivityForResult(PhotoActivityIntent,0);
+                            //sendEmail();
                             finish();
                         }
                     })
@@ -475,7 +501,20 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
-                            sendEmail();
+                            send=1;
+                            Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData",ListData);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData2",ListData2);
+                            PhotoActivityIntent.putExtra("mUrgence",mUrgence);
+                            PhotoActivityIntent.putExtra("mVehicule",mVehicule);
+                            PhotoActivityIntent.putExtra("mNom",mNom);
+                            PhotoActivityIntent.putExtra("mPrenom",mPrenom);
+                            PhotoActivityIntent.putExtra("mImmatTracteur",mImmatTracteur);
+                            PhotoActivityIntent.putExtra("mImmatRemorque",mImmatRemorque);
+                            PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
+                            PhotoActivityIntent.putExtra("send",send);
+                            startActivityForResult(PhotoActivityIntent,0);
+                            //sendEmail();
                             finish();
                         }
                     })
@@ -511,7 +550,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent MainActivityIntent = new Intent(TourCamionActivity.this, MainActivity.class);
                             startActivityForResult(MainActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
-
+                            finish();
                         }
                     })
                     .setCancelable(false)
@@ -531,7 +570,20 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             setResult(RESULT_OK, intent);
-                            sendEmail2();
+                            send=2;
+                            Intent PhotoActivityIntent = new Intent(TourCamionActivity.this, PhotoActivity.class);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData",ListData);
+                            PhotoActivityIntent.putStringArrayListExtra("ListData2",ListData2);
+                            PhotoActivityIntent.putExtra("mUrgence",mUrgence);
+                            PhotoActivityIntent.putExtra("mVehicule",mVehicule);
+                            PhotoActivityIntent.putExtra("mNom",mNom);
+                            PhotoActivityIntent.putExtra("mPrenom",mPrenom);
+                            PhotoActivityIntent.putExtra("mImmatTracteur",mImmatTracteur);
+                            PhotoActivityIntent.putExtra("mImmatRemorque",mImmatRemorque);
+                            PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
+                            PhotoActivityIntent.putExtra("send",send);
+                            startActivityForResult(PhotoActivityIntent,0);
+                            //sendEmail2();
                             finish();
                         }
                     })
@@ -606,8 +658,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                             "Hayon défaillant","Télécommande du hayon manquante","Clé hayon manquante","Cône de sécurité manquant","Validation du Hayon expiré",
-                             "Fuite d'huile au niveau du hayon",null,null,null,null,null));
+                             "Validation du Hayon expiré","Fuite d'huile au niveau du hayon",null,null,null,null,null,null,null,null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
@@ -793,6 +844,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
         }
 
+
         for(i =0; i<myArrayList.size();i++) {
         (myArrayList.get(i)).setChecked(false);
         mNextButton.setEnabled(false);
@@ -885,6 +937,91 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .show();
         }
         if(mVehicule==2){
+            AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+            builder2.setTitle("Avez-vous votre clé hayon?")
+                    .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("NON", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ListData2.add("clé hayon manquante");
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+            AlertDialog.Builder builder3 = new AlertDialog.Builder(this);
+            builder3.setTitle("Avez-vous votre télécommande hayon?")
+                    .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("NON", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ListData2.add("télécommande hayon manquante");
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+            AlertDialog.Builder builder4 = new AlertDialog.Builder(this);
+            builder4.setTitle("Avez-vous vos cônes de sécurité?")
+                    .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("NON", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ListData2.add("cônes de sécurité manquants");
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+            AlertDialog.Builder builder5 = new AlertDialog.Builder(this);
+            builder5.setTitle("Est-ce que votre hayon fonctionne?")
+                    .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("NON", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ListData2.add("hayon défaillant");
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+            AlertDialog.Builder builder6 = new AlertDialog.Builder(this);
+            builder6.setTitle("Est-ce que votre alarme fonctionne?")
+                    .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("NON", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ListData2.add("alarme défaillante");
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("IMPORTANT:")
@@ -903,7 +1040,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    protected void sendEmail() {
+    /**protected void sendEmail() {
         Log.i("Comment envoyer le mail", "");
         String[]TO={"romain.jacquemart@di-egidio.com","yasin.gurbuz@di-egidio.com","franco.dicerto@di-egidio.com","atelier@di-egidio.com"};
         String[] CC = {"gauthier.lesser@di-egidio.com"};
@@ -1018,7 +1155,19 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(TourCamionActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
-    }
+    }/*
+
+   /** private void VoyantCheck(){
+        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
+            mCheckBox3.setVisibility(View.GONE);
+            mCheckBox2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mCheckBox3.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+    }*/
 
 
     @Override
