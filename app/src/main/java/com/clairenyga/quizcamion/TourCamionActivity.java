@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.clairenyga.quizcamion.R;
@@ -78,6 +79,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CheckBox mCheckBox27;
     private CheckBox mCheckBox28;
     private Button mNextButton;
+    //private EditText mVoyant;
 
 
     private QuestionBank mQuestionBank;
@@ -224,6 +226,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox27 = findViewById(R.id.checkBox27);
         mCheckBox28 = findViewById(R.id.checkBox28);
         mNextButton = findViewById(R.id.activity_tour_camion_next_btn);
+        //mVoyant = findViewById(R.id.activity_tour_camion_voyant_input);
 
         // Use the tag property to 'name' the buttons
         mCheckBox1.setTag(0);
@@ -316,6 +319,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
 
         mNextButton.setEnabled(false);
+        //mVoyant.setVisibility(View.GONE);
         mCurrentQuestion = mQuestionBank.getQuestion();
         this.displayQuestion(mCurrentQuestion);
 
@@ -334,10 +338,12 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         mEnableTouchEvents = false;
         mNextButton.setEnabled(false);
+        //mVoyant.setVisibility(View.GONE);
 
         new Handler().postAtFrontOfQueue(new Runnable() {
             @Override
             public void run() {
+
                 mEnableTouchEvents = true;
                 mNextButton.setEnabled(true);
 
@@ -354,11 +360,35 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             manageCheckbox();
                             mCurrentQuestion = mQuestionBank.getQuestion();
                             displayQuestion(mCurrentQuestion);
+                            //
+                            /**if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
+                                mCheckBox2.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        mVoyant.setVisibility(View.VISIBLE);
+                                        mEnableTouchEvents = true;
+                                        mNextButton.setEnabled(true);
+                                    }
+                                });
+                            }*/
+
                         }
 
                     }
                 });
 
+
+                /**if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&& mNumberOfQuestions==1){
+                    mCheckBox2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mVoyant.setVisibility(View.VISIBLE);
+                            mEnableTouchEvents = true;
+                            mNextButton.setEnabled(true);
+                        }
+                    });
+                }*/
+                //
 
             }
 
@@ -768,6 +798,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void manageCheckbox() {
+        //mVoyant.setVisibility(View.GONE);
 
         if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
             if(myArrayList.get(0).isChecked()){
@@ -778,7 +809,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
             startQuiz();
         }
-        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&(mNumberOfQuestions==1)){
+        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&mNumberOfQuestions==1){
             if(myArrayList.get(0).isChecked()){
                 mUrgence=0;
             }
