@@ -16,6 +16,14 @@
         android:textSize="20sp"
         android:text="Bonjour, nous allons commencer le tour du camion!" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
     <EditText
         android:id="@+id/activity_main_nom_input"
@@ -168,5 +176,7 @@
         android:padding="5dp"
         android:textSize="20dp"
         android:text="Commençons" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

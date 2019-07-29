@@ -1,8 +1,14 @@
 package com.clairenyga.quizcamion;
 
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -23,6 +29,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class PhotoActivity extends AppCompatActivity {
@@ -44,6 +51,7 @@ public class PhotoActivity extends AppCompatActivity {
     private int mUrgence;
     private int send;
     private File photoFile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +90,8 @@ public class PhotoActivity extends AppCompatActivity {
     }
 
     private void prendreUnePhoto(){
+
+
         Intent intent4 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if(intent4.resolveActivity(getPackageManager()) !=null){
@@ -94,16 +104,24 @@ public class PhotoActivity extends AppCompatActivity {
                 Uri photoUri=FileProvider.getUriForFile(PhotoActivity.this,PhotoActivity.this.getApplicationContext().getPackageName()+".provider",
                         photoFile);
                 intent4.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);
+                List<ResolveInfo> resolvedIntentActivities = getApplicationContext().getPackageManager().queryIntentActivities(intent4, PackageManager.MATCH_DEFAULT_ONLY);
+                for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
+                    String packageName = resolvedIntentInfo.activityInfo.packageName;
+                    getApplicationContext().grantUriPermission(packageName, photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                }
                 startActivityForResult(intent4,RETOUR_PRENDRE_PHOTO);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
     }
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         super.onActivityResult(requestCode,resultCode,data);
+
         if(requestCode==RETOUR_PRENDRE_PHOTO&&resultCode==RESULT_OK){
             Bitmap image = BitmapFactory.decodeFile(photoPath);
             imgAffichePhoto.setImageBitmap(image);
@@ -211,7 +229,7 @@ public class PhotoActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
             finish();
             Log.i("Finished sending email", "");
-        } catch (android.content.ActivityNotFoundException ex) {
+        } catch (ActivityNotFoundException ex) {
             Toast.makeText(PhotoActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
@@ -260,7 +278,7 @@ public class PhotoActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
             finish();
             Log.i("Finished sending email", "");
-        } catch (android.content.ActivityNotFoundException ex) {
+        } catch (ActivityNotFoundException ex) {
             Toast.makeText(PhotoActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
@@ -301,6 +319,7 @@ public class PhotoActivity extends AppCompatActivity {
         System.out.println("PhotoActivity::onDestroy()");
 
     }
+
 }
 
 

@@ -346,6 +346,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
                 mEnableTouchEvents = true;
                 mNextButton.setEnabled(true);
+                //mVoyant.setVisibility(View.GONE);
 
                 mNextButton.setOnClickListener(new View.OnClickListener() {
                     @Override
