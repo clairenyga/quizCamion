@@ -158,7 +158,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             mQuestionBank = this.generateQuestions9();
         }
 
-
         if (savedInstanceState != null) {
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
