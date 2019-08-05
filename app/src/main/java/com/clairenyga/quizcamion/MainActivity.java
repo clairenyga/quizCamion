@@ -266,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
                 TourActivityIntent.putExtra(EXTRA_IMMATREMORQUE,immatremorque);
                 TourActivityIntent.putExtra(EXTRA_IMMATVEHICULE,immatvehicule);
                 startActivityForResult(TourActivityIntent, TOUR_ACTIVITY_REQUEST_CODE);
+                finish();
             }
         });
 

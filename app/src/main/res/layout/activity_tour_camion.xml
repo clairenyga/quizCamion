@@ -41,9 +41,16 @@
         android:textSize="18sp"
         android:text="CheckBox2" />
 
+    <EditText
+        android:id="@+id/activity_tour_camion_voyant_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:hint="Descriptif du voyant allumé" />
 
-
-            <CheckBox
+     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -276,6 +283,15 @@
         android:layout_weight="1"
         android:textSize="18sp"
         android:text="CheckBox28" />
+
+    <CheckBox
+        android:id="@+id/checkBox29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:text="CheckBox29" />
 
     <Button
         android:id="@+id/activity_tour_camion_next_btn"

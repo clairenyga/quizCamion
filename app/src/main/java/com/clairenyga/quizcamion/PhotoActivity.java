@@ -104,6 +104,11 @@ public class PhotoActivity extends AppCompatActivity {
                 Uri photoUri=FileProvider.getUriForFile(PhotoActivity.this,PhotoActivity.this.getApplicationContext().getPackageName()+".provider",
                         photoFile);
                 intent4.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);
+                //
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                mediaScanIntent.setData(photoUri);
+                getApplicationContext().sendBroadcast(mediaScanIntent);
+                //
                 List<ResolveInfo> resolvedIntentActivities = getApplicationContext().getPackageManager().queryIntentActivities(intent4, PackageManager.MATCH_DEFAULT_ONLY);
                 for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
                     String packageName = resolvedIntentInfo.activityInfo.packageName;
@@ -127,9 +132,11 @@ public class PhotoActivity extends AppCompatActivity {
             imgAffichePhoto.setImageBitmap(image);
             if(send==1){
                 sendEmail();
+                finish();
             }
             if(send==2){
                 sendEmail2();
+                finish();
             }
 
         }
@@ -227,8 +234,9 @@ public class PhotoActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
-            finish();
+            //finish();
             Log.i("Finished sending email", "");
+            finish();
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(PhotoActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
@@ -276,12 +284,15 @@ public class PhotoActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
-            finish();
+            //finish();
             Log.i("Finished sending email", "");
+            finish();
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(PhotoActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();
