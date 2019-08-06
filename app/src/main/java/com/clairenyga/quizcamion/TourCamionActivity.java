@@ -110,6 +110,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     public ArrayList<CheckBox> myArrayList = new ArrayList<>();
     public ArrayList<String>ListData=new ArrayList<>();
     public ArrayList<String>ListData2=new ArrayList<>();
+    private String TextVoyant;
 
 
     @Override
@@ -413,12 +414,28 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private void endGame() {
 
-        for(b=1;b<myArrayList.size();b++){
-            if((myArrayList.get(b)).isChecked()){
-                ListData2.add((String)(myArrayList.get(b)).getText());
+        if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
+            for(b=1;b<myArrayList.size();b++){
+                if((myArrayList.get(b)).isChecked()){
+                    ListData2.add((String)(myArrayList.get(b)).getText());
+                }
             }
         }
 
+        if(mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9){
+            for(b=1;b<myArrayList.size();b++){
+                if(b==1&&myArrayList.get(b).isChecked()){
+                    TextVoyant="Voyant allumé:"+mVoyant.getText().toString();
+                    ListData2.add(TextVoyant);
+                }
+                else{
+                    if((myArrayList.get(b)).isChecked()){
+                        ListData2.add((String)(myArrayList.get(b)).getText());
+                    }
+
+                }
+            }
+        }
 
     if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
         if((ListData2.isEmpty()==true)&&(ListData.isEmpty()==true)){
@@ -675,10 +692,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque bachée",
-                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                Arrays.asList("Rien à signaler", null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null,null));
+                        null,null,null,null,null,null,null,null,null,null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
@@ -695,10 +712,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
 
         Question question3 = new Question("Vérification de l'état de la remorque avec hayon",
-                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                             "Validation du Hayon expiré","Fuite d'huile au niveau du hayon",null,null,null,null,null,null,null,null,null,null));
+                             "Validation du Hayon expiré","Fuite d'huile au niveau du hayon",null,null,null,null,null,null,null,null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
@@ -713,10 +730,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque benne",
-                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                       "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null,null,null));
+                        null,null,null,null,null,null,null,null,null,null,null,null));
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
@@ -731,10 +748,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque porte-conteneur",
-                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées",
                             "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                            "Twistlock manquant","Prise conteneur manquante",null,null,null,null,null,null,null,null,null,null,null,null));
+                            "Twistlock manquant","Prise conteneur manquante",null,null,null,null,null,null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
@@ -748,10 +765,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque citerne",
-                Arrays.asList("Rien à signaler","Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Cône de sécurité manquant",
                        "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null,null,null));
+                        null,null,null,null,null,null,null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
@@ -833,8 +850,14 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             remorqueQuiz();
 
             for(b=1;b<myArrayList.size();b++){
-                if((myArrayList.get(b)).isChecked()){
-                    ListData.add((String)(myArrayList.get(b)).getText());
+                if(b==1&&myArrayList.get(b).isChecked()){
+                    TextVoyant="Voyant allumé:"+mVoyant.getText().toString();
+                    ListData.add(TextVoyant);
+                }
+                else{
+                    if((myArrayList.get(b)).isChecked()){
+                        ListData.add((String)(myArrayList.get(b)).getText());
+                    }
                 }
             }
             if(ListData.isEmpty()){
