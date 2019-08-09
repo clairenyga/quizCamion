@@ -13,12 +13,11 @@ public class QuestionBank {
     }
 
     public Question getQuestion() {
-        // Ensure we loop over the questions
+
         if (mNextQuestionIndex == mQuestionList.size()) {
             mNextQuestionIndex = 0;
         }
 
-        // Please note the post-incrementation
         return mQuestionList.get(mNextQuestionIndex++);
     }
     public int getNextQuestionIndex(){

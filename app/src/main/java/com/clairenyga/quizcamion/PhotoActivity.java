@@ -101,18 +101,19 @@ public class PhotoActivity extends AppCompatActivity {
             try {
                 photoFile=File.createTempFile("photo"+time,".jpg",photoDir);
                 photoPath=photoFile.getAbsolutePath();
-                Uri photoUri=FileProvider.getUriForFile(PhotoActivity.this,PhotoActivity.this.getApplicationContext().getPackageName()+".provider",
+                Uri photoUri=FileProvider.getUriForFile(PhotoActivity.this,PhotoActivity.this.getApplicationContext().getPackageName()+ ".provider",
                         photoFile);
                 intent4.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);
-                //
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 mediaScanIntent.setData(photoUri);
                 getApplicationContext().sendBroadcast(mediaScanIntent);
-                //
-                List<ResolveInfo> resolvedIntentActivities = getApplicationContext().getPackageManager().queryIntentActivities(intent4, PackageManager.MATCH_DEFAULT_ONLY);
+
+                List<ResolveInfo> resolvedIntentActivities = getApplicationContext().getPackageManager().queryIntentActivities(intent4,
+                        PackageManager.MATCH_DEFAULT_ONLY);
                 for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
                     String packageName = resolvedIntentInfo.activityInfo.packageName;
-                    getApplicationContext().grantUriPermission(packageName, photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    getApplicationContext().grantUriPermission(packageName, photoUri,
+                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 }
                 startActivityForResult(intent4,RETOUR_PRENDRE_PHOTO);
 
@@ -149,6 +150,7 @@ public class PhotoActivity extends AppCompatActivity {
         String[]CC3={"gauthier.lesser@di-egidio.com","gauthier.laborde@di-egidio.com","vincent.lepetit@di-egidio.com"};
         String[]CC4 = {"gauthier.laborde@di-egidio.com"};
         String[]CC5={"gauthier.lesser@di-egidio.com","vincent.lepetit@di-egidio.com"};
+        String[]CC6={"gauthier.lesser@di-egidio.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
@@ -168,6 +170,9 @@ public class PhotoActivity extends AppCompatActivity {
         }
         if(mVehicule==5){
             emailIntent.putExtra(Intent.EXTRA_CC, CC5);
+        }
+        if(mVehicule==6){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC6);
         }
         if((ListData.isEmpty()==false)&&(ListData2.isEmpty()==false)){
             if(mUrgence==1) {
@@ -234,7 +239,6 @@ public class PhotoActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
-            //finish();
             Log.i("Finished sending email", "");
             finish();
         } catch (ActivityNotFoundException ex) {
@@ -248,19 +252,23 @@ public class PhotoActivity extends AppCompatActivity {
         String[]CC = {"gauthier.laborde@di-egidio.com"};
         String[]CC2={"gauthier.lesser@di-egidio.com","vincent.lepetit@di-egidio.com"};
         String[]CC3={"gauthier.lesser@di-egidio.com","gauthier.laborde@di-egidio.com"};
+        String[]CC4={"gauthier.lesser@di-egidio.com","vincent.lepetit@di-egidio.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        if(mVehicule==6||mVehicule==7){
+        if(mVehicule==7||mVehicule==8){
             emailIntent.putExtra(Intent.EXTRA_CC, CC);
         }
-        if(mVehicule==8){
+        if(mVehicule==9){
             emailIntent.putExtra(Intent.EXTRA_CC, CC2);
         }
-        if(mVehicule==9){
+        if(mVehicule==10){
             emailIntent.putExtra(Intent.EXTRA_CC, CC3);
+        }
+        if(mVehicule==11){
+            emailIntent.putExtra(Intent.EXTRA_CC, CC4);
         }
         if(mUrgence==1){
             emailIntent.putExtra(Intent.EXTRA_CC, CC);
@@ -284,7 +292,6 @@ public class PhotoActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Comment envoyer le mail?"));
-            //finish();
             Log.i("Finished sending email", "");
             finish();
         } catch (ActivityNotFoundException ex) {

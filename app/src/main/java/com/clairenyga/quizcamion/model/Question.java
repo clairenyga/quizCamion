@@ -6,12 +6,12 @@ public class Question {
 
     private String mQuestion;
     private List<String> mChoiceList;
-    //private int mAnswerIndex;
+
 
     public Question(String question,List<String>choiceList) {
         this.setQuestion(question);
         this.setChoiceList(choiceList);
-        //this.setAnswerIndex(answerIndex);
+
     }
 
     public String getQuestion() {

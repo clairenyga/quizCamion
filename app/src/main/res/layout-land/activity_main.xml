@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="50dp"
+        android:padding="25dp"
         android:textAlignment="center"
         android:textSize="20sp"
         android:text="Bonjour, nous allons commencer le tour du camion!" />
@@ -24,146 +24,176 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/activity_main_nom_input"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:hint="Nom"
-        />
 
-    <EditText
-        android:id="@+id/activity_main_prenom_input"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:hint="Prénom"
-        />
+            <EditText
+                android:id="@+id/activity_main_nom_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Nom"
+                />
 
-    <TextView
-        android:id="@+id/activity_main_vehicule_txt"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Vous roulez:" />
+            <EditText
+                android:id="@+id/activity_main_prenom_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Prénom"
+                />
 
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un tracteur avec une remorque bachée" />
+            <TextView
+                android:id="@+id/activity_main_vehicule_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Vous roulez:" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un tracteur avec une remorque hayon" />
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque bachée" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un tracteur avec une remorque benne" />
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque hayon" />
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un tracteur avec une remorque porte-conteneur" />
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque benne" />
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un tracteur avec une remorque citerne" />
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque porte-conteneur" />
 
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Une toupie" />
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque citerne" />
 
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un porte-voiture" />
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un tracteur avec une remorque plateau" />
 
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="un camion grue" />
 
-    <CheckBox
-        android:id="@+id/checkBox9"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:text="Un porteur" />
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Une toupie" />
 
-    <EditText
-        android:id="@+id/activity_main_immattracteur_input"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:hint="Immatriculation du tracteur"
-        />
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un porte-voiture" />
 
-    <EditText
-        android:id="@+id/activity_main_immatremorque_input"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:hint="Immatriculation de la remorque"
-        />
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="un camion grue" />
 
-    <Button
-        android:id="@+id/activity_main_play_btn"
-        android:layout_width="50mm"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:text="Commençons"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp" />
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un porteur" />
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Un porteur citerne" />
+
+            <EditText
+                android:id="@+id/activity_main_immattracteur_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Immatriculation du tracteur"
+                />
+
+            <EditText
+                android:id="@+id/activity_main_immatremorque_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Immatriculation de la remorque"
+                />
+
+            <EditText
+                android:id="@+id/activity_main_immatvehicule_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Immatriculation du véhicule"
+                />
+
+            <Button
+                android:id="@+id/activity_main_play_btn"
+                android:layout_width="50mm"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="0dp"
+                android:padding="5dp"
+                android:textSize="20dp"
+                android:text="Commençons" />
         </LinearLayout>
     </ScrollView>
 

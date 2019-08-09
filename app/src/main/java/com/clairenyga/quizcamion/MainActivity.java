@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox mCheckBox7;
     private CheckBox mCheckBox8;
     private CheckBox mCheckBox9;
+    private CheckBox mCheckBox10;
+    private CheckBox mCheckBox11;
     private EditText mImmattracteurInput;
     private EditText mImmatremorqueInput;
     private EditText mImmatvehiculeInput;
@@ -49,18 +51,14 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> ArrayFormulaire=new ArrayList<>();
     private int mVehicule;
     public int i,k;
-
-    //ok1
-
     public static final int TOUR_ACTIVITY_REQUEST_CODE = 42;
-    //private SharedPreferences mPreferences;
     public static final String EXTRA_VEHICULE="EXTRA_VEHICULE";
     public static final String EXTRA_NOM="EXTRA_NOM";
     public static final String EXTRA_PRENOM="EXTRA_PRENOM";
     public static final String EXTRA_IMMATTRACTEUR="EXTRA_IMMATTRACTEUR";
     public static final String EXTRA_IMMATREMORQUE="EXTRA_IMMATREMORQUE";
     public static final String EXTRA_IMMATVEHICULE="EXTRA_IMMATVEHICULE";
-    //ok2
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("MainActivity::onCreate()");
 
         mUser = new User();
-        //mPreferences = getPreferences(MODE_PRIVATE);
         mGreetingText = findViewById(R.id.activity_main_greeting_txt);
         mNomInput = findViewById(R.id.activity_main_nom_input);
         mPrenomInput = findViewById(R.id.activity_main_prenom_input);
@@ -84,15 +81,14 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox7 = findViewById(R.id.checkBox7);
         mCheckBox8 = findViewById(R.id.checkBox8);
         mCheckBox9 = findViewById(R.id.checkBox9);
+        mCheckBox10 = findViewById(R.id.checkBox10);
+        mCheckBox11 = findViewById(R.id.checkBox11);
         mImmattracteurInput = findViewById(R.id.activity_main_immattracteur_input);
         mImmatremorqueInput = findViewById(R.id.activity_main_immatremorque_input);
         mImmatvehiculeInput = findViewById(R.id.activity_main_immatvehicule_input);
         mStartButton = findViewById(R.id.activity_main_play_btn);
 
         mStartButton.setEnabled(false);
-
-
-        //ok3
 
         mCheckBox1.setTag(0);
         mCheckBox2.setTag(1);
@@ -103,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox7.setTag(6);
         mCheckBox8.setTag(7);
         mCheckBox9.setTag(8);
-
+        mCheckBox10.setTag(9);
+        mCheckBox11.setTag(10);
 
         ArrayVehicule.add(mCheckBox1);
         ArrayVehicule.add(mCheckBox2);
@@ -114,13 +111,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayVehicule.add(mCheckBox7);
         ArrayVehicule.add(mCheckBox8);
         ArrayVehicule.add(mCheckBox9);
+        ArrayVehicule.add(mCheckBox10);
+        ArrayVehicule.add(mCheckBox11);
 
         mImmattracteurInput.setVisibility((View.GONE));
         mImmatremorqueInput.setVisibility(View.GONE);
         mImmatvehiculeInput.setVisibility(View.GONE);
         mVehicule=0;
-
-
 
         mCheckBox1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,9 +178,9 @@ public class MainActivity extends AppCompatActivity {
         mCheckBox6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mImmattracteurInput.setVisibility(View.GONE);
-                mImmatremorqueInput.setVisibility(View.GONE);
-                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mImmattracteurInput.setVisibility(View.VISIBLE);
+                mImmatremorqueInput.setVisibility(View.VISIBLE);
+                mImmatvehiculeInput.setVisibility(View.GONE);
                 mVehicule=6;
                 OneChoice();
             }
@@ -222,14 +219,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mCheckBox10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=10;
+                OneChoice();
+            }
+        });
+
+        mCheckBox11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mImmattracteurInput.setVisibility(View.GONE);
+                mImmatremorqueInput.setVisibility(View.GONE);
+                mImmatvehiculeInput.setVisibility(View.VISIBLE);
+                mVehicule=11;
+                OneChoice();
+            }
+        });
+
         mNomInput.addTextChangedListener(InfoAccueilWatcher);
         mPrenomInput.addTextChangedListener(InfoAccueilWatcher);
         mImmattracteurInput.addTextChangedListener(InfoAccueilWatcher);
         mImmatremorqueInput.addTextChangedListener(InfoAccueilWatcher);
         mImmatvehiculeInput.addTextChangedListener(InfoAccueilWatcher);
-
-
-        //ok4
 
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,15 +264,13 @@ public class MainActivity extends AppCompatActivity {
 
                 ArrayFormulaire.add(nom);
                 ArrayFormulaire.add(prenom);
-                if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
+                if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6){
                     ArrayFormulaire.add(immattracteur);
                     ArrayFormulaire.add(immatremorque);
                 }
                 else{
                     ArrayFormulaire.add(immatvehicule);
                 }
-
-                // User clicked the button
 
                 Intent TourActivityIntent = new Intent(MainActivity.this, TourCamionActivity.class);
                 TourActivityIntent.putExtra(EXTRA_VEHICULE,mVehicule);
@@ -340,4 +354,4 @@ public class MainActivity extends AppCompatActivity {
         out.println("MainActivity::onDestroy()");
     }
 }
-//ok8
+

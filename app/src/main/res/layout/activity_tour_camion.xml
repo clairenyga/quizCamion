@@ -267,13 +267,13 @@
         android:text="CheckBox26" />
 
     <CheckBox
-    android:id="@+id/checkBox27"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:layout_weight="1"
-    android:textSize="18sp"
-    android:text="CheckBox27" />
+        android:id="@+id/checkBox27"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:text="CheckBox27" />
 
     <CheckBox
         android:id="@+id/checkBox28"
@@ -292,6 +292,24 @@
         android:layout_weight="1"
         android:textSize="18sp"
         android:text="CheckBox29" />
+
+    <CheckBox
+        android:id="@+id/checkBox30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:text="CheckBox30" />
+
+    <CheckBox
+        android:id="@+id/checkBox31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:text="CheckBox31" />
 
     <Button
         android:id="@+id/activity_tour_camion_next_btn"

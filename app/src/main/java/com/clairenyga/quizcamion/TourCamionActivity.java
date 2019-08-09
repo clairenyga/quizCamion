@@ -78,17 +78,14 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CheckBox mCheckBox27;
     private CheckBox mCheckBox28;
     private CheckBox mCheckBox29;
+    private CheckBox mCheckBox30;
+    private CheckBox mCheckBox31;
     private Button mNextButton;
     private EditText mVoyant;
-
-
     private QuestionBank mQuestionBank;
     private List<Question> ListQuestions;
     private Question mCurrentQuestion;
     private CharSequence s;
-
-
-    private int mScore;
     private int mNumberOfQuestions;
     private int mVehicule;
     public int mUrgence;
@@ -98,14 +95,9 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     private CharSequence mImmatRemorque;
     private CharSequence mImmatVehicule;
     private int send;
-
     public int i, j, b;
-
     public static final String BUNDLE_STATE_QUESTION = "currentQuestion";
-
-
     private boolean mEnableTouchEvents;
-
     public ArrayList<CheckBox> myArrayList = new ArrayList<>();
     public ArrayList<String>ListData=new ArrayList<>();
     public ArrayList<String>ListData2=new ArrayList<>();
@@ -116,11 +108,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_camion);
-
-
         System.out.println("TourCamionActivity::onCreate()");
-
-        //startQuiz();
 
         Intent TourActivityIntent=getIntent();
         mVehicule= getIntent().getIntExtra(MainActivity.EXTRA_VEHICULE,0);
@@ -158,11 +146,16 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         if(mVehicule==9){
             mQuestionBank = this.generateQuestions9();
         }
+        if(mVehicule==10) {
+            mQuestionBank = this.generateQuestions10();
+        }
+        if(mVehicule==11){
+            mQuestionBank = this.generateQuestions11();
+        }
 
         if (savedInstanceState != null) {
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
-            //mScore = 0;
             if(mVehicule==1) {
                 mNumberOfQuestions = 3;
             }
@@ -179,7 +172,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                 mNumberOfQuestions = 3;
             }
             if(mVehicule==6) {
-                mNumberOfQuestions = 2;
+                mNumberOfQuestions = 3;
             }
             if(mVehicule==7) {
                 mNumberOfQuestions = 2;
@@ -190,12 +183,16 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             if(mVehicule==9) {
                 mNumberOfQuestions = 2;
             }
+            if(mVehicule==10) {
+                mNumberOfQuestions = 2;
+            }
+            if(mVehicule==11) {
+                mNumberOfQuestions = 2;
+            }
         }
 
         mEnableTouchEvents = true;
 
-
-        // Wire widgets
         mQuestionTextView = findViewById(R.id.activity_tour_camion_question_txt);
         mCheckBox1 = findViewById(R.id.checkBox1);
         mCheckBox2 = findViewById(R.id.checkBox2);
@@ -226,10 +223,11 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox27 = findViewById(R.id.checkBox27);
         mCheckBox28 = findViewById(R.id.checkBox28);
         mCheckBox29 = findViewById(R.id.checkBox29);
+        mCheckBox30 = findViewById(R.id.checkBox30);
+        mCheckBox31 = findViewById(R.id.checkBox31);
         mNextButton = findViewById(R.id.activity_tour_camion_next_btn);
         mVoyant = findViewById(R.id.activity_tour_camion_voyant_input);
 
-        // Use the tag property to 'name' the buttons
         mCheckBox1.setTag(0);
         mCheckBox2.setTag(1);
         mCheckBox3.setTag(2);
@@ -259,6 +257,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox27.setTag(26);
         mCheckBox28.setTag(27);
         mCheckBox29.setTag(28);
+        mCheckBox30.setTag(29);
+        mCheckBox31.setTag(30);
 
         mCheckBox1.setOnClickListener(this);
         mCheckBox2.setOnClickListener(this);
@@ -289,6 +289,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         mCheckBox27.setOnClickListener(this);
         mCheckBox28.setOnClickListener(this);
         mCheckBox29.setOnClickListener(this);
+        mCheckBox30.setOnClickListener(this);
+        mCheckBox31.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
 
         myArrayList.add(mCheckBox1);
@@ -320,7 +322,8 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
         myArrayList.add(mCheckBox27);
         myArrayList.add(mCheckBox28);
         myArrayList.add(mCheckBox29);
-
+        myArrayList.add(mCheckBox30);
+        myArrayList.add(mCheckBox31);
 
         mNextButton.setEnabled(false);
         mVoyant.setVisibility(View.GONE);
@@ -338,8 +341,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
         @Override
     public void onClick(View v) {
-        int responseIndex = (int) v.getTag();
-
         mEnableTouchEvents = false;
         mNextButton.setEnabled(false);
 
@@ -349,26 +350,21 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
                 mEnableTouchEvents = true;
                 mNextButton.setEnabled(true);
-                //mVoyant.setVisibility(View.GONE);
-
 
                 mNextButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mVoyant.setVisibility(View.GONE);
-                        // If this is the last question, ends the game.
-                        // Else, display the next question.
                         mNumberOfQuestions=mNumberOfQuestions-1;
                         if (mNumberOfQuestions == 0) {
-                            // End the game
                             endGame();
                         } else {
-                            //startQuiz();
+
                             manageCheckbox();
                             mCurrentQuestion = mQuestionBank.getQuestion();
                             displayQuestion(mCurrentQuestion);
-                            //
-                            if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
+
+                            if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6)&& mNumberOfQuestions==2){
                                 mCheckBox2.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -378,10 +374,10 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                                     }
                                 });
                             }
-                            if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
+                            if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6)&& mNumberOfQuestions==1){
                                mCheckBox2.setVisibility(View.GONE);
                             }
-                            if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&& mNumberOfQuestions==1){
+                            if((mVehicule==7||mVehicule==8||mVehicule==9||mVehicule==10||mVehicule==11)&& mNumberOfQuestions==1){
                                 mCheckBox2.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -413,7 +409,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private void endGame() {
 
-        if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
+        if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6){
             for(b=1;b<myArrayList.size();b++){
                 if((myArrayList.get(b)).isChecked()){
                     ListData2.add((String)(myArrayList.get(b)).getText());
@@ -421,7 +417,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
         }
 
-        if(mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9){
+        if(mVehicule==7||mVehicule==8||mVehicule==9||mVehicule==10||mVehicule==11){
             for(b=1;b<myArrayList.size();b++){
                 if(b==1&&myArrayList.get(b).isChecked()){
                     TextVoyant="Voyant allumé:"+mVoyant.getText().toString();
@@ -436,7 +432,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
         }
 
-    if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5){
+    if(mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6){
         if((ListData2.isEmpty()==true)&&(ListData.isEmpty()==true)){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -485,7 +481,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
                             PhotoActivityIntent.putExtra("send",send);
                             startActivityForResult(PhotoActivityIntent,0);
-                            //sendEmail();
                             finish();
                         }
                     })
@@ -528,7 +523,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
                             PhotoActivityIntent.putExtra("send",send);
                             startActivityForResult(PhotoActivityIntent,0);
-                            //sendEmail();
                             finish();
                         }
                     })
@@ -570,7 +564,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
                             PhotoActivityIntent.putExtra("send",send);
                             startActivityForResult(PhotoActivityIntent,0);
-                            //sendEmail();
                             finish();
                         }
                     })
@@ -639,7 +632,6 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                             PhotoActivityIntent.putExtra("mImmatVehicule",mImmatVehicule);
                             PhotoActivityIntent.putExtra("send",send);
                             startActivityForResult(PhotoActivityIntent,0);
-                            //sendEmail2();
                             finish();
                         }
                     })
@@ -684,17 +676,17 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private QuestionBank generateQuestions1() {
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque bachée",
                 Arrays.asList("Rien à signaler", null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null));
+                        "extincteur manquant",null,null,null,null,null,null,null,null,null,null,null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
@@ -703,18 +695,18 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private QuestionBank generateQuestions2() {
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
 
         Question question3 = new Question("Vérification de l'état de la remorque avec hayon",
                 Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                        "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                             "Validation du Hayon expiré","Fuite d'huile au niveau du hayon",null,null,null,null,null,null,null,null,null));
+                             "Validation du Hayon expirée","Fuite d'huile au niveau du hayon","extincteur manquant",null,null,null,null,null,null,null,null,null,null));
 
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
@@ -722,17 +714,17 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private QuestionBank generateQuestions3(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque benne",
                 Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Bâche endommagée",
                       "Les portes ne se ferment pas correctement","Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null,null));
+                        "extincteur manquant",null,null,null,null,null,null,null,null,null,null,null,null,null));
 
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
@@ -740,93 +732,120 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
     private QuestionBank generateQuestions4(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque porte-conteneur",
                 Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées",
                             "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                            "Twistlock manquant","Prise conteneur manquante",null,null,null,null,null,null,null,null,null,null,null));
+                            "Twistlock manquant","Prise conteneur manquante","extincteur manquant",null,null,null,null,null,null,null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
 
     private QuestionBank generateQuestions5(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du tracteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée",null,null,null,null,null,null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
      Question question3 = new Question("Vérification de l'état de la remorque citerne",
                 Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
                                   "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées","Cône de sécurité manquant",
                        "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
-                        null,null,null,null,null,null,null,null,null,null,null,null));
+                        "extincteur manquant",null,null,null,null,null,null,null,null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2,question3));
 
     }
 
     private QuestionBank generateQuestions6(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du tracteur",
+                Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                        "Aile droite endommagée","Aile gauche endommagée","extincteur manquant",null,null,null,null,null,null,null,null));
+        Question question3 = new Question("Vérification de l'état de la remorque plateau",
+                Arrays.asList("Rien à signaler",null,"Pneu crevé","Pneus lisses","Présence d'hernies","Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé",
+                        "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé","Ailes droite endommagées","Ailes gauche endommagées",
+                        "Bare anti-encastrement arrière endommagée","Bare anti-encastrement droite endommagée","Bare anti-encastrement gauche endommagée",
+                        "extincteur manquant",null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1,question2,question3));
+
+    }
+
+    private QuestionBank generateQuestions7(){
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état de la toupie",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                      "Aile droite endommagée","Aile gauche endommagée","Truelle manquante","Massette manquante","Brosse de lavage manquante","Girophare cassé",
-                     "Flacheur cassé","Bip de recul défaillant","Caméra de recul cassée"));
+                     "Flacheur cassé","Bip de recul défaillant","Caméra de recul cassée","Goulotte endommagée","extincteur manquant"));
 
         return new QuestionBank(Arrays.asList(question1,question2));
 
     }
 
-
-   private QuestionBank generateQuestions7(){
+   private QuestionBank generateQuestions8(){
        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-               null,null,null,null,null,null,null,null,null,null));
+               null,null,null,null,null,null,null,null,null,null,null,null));
        Question question2=new Question("Vérification de l'état du porte-voiture",
                 Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                     "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                    "Aile droite endommagée","Aile gauche endommagée","Sangles manquantes","Cale manquante","Mauvais fonctionnement des plateaux",null,null,null,null));
+                    "Aile droite endommagée","Aile gauche endommagée","Sangles manquantes","Cale manquante","Mauvais fonctionnement des plateaux","extincteur manquant",null,null,null,null,null));
        return new QuestionBank(Arrays.asList(question1,question2));
 
     }
 
-    private QuestionBank generateQuestions8(){
+    private QuestionBank generateQuestions9(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du Camion Grue",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                      "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
-                     "Aile droite endommagée","Aile gauche endommagée","Validation de la grue expirée","Girophare cassé","Bip de recule défaillant","Caméra de recul cassée","Fuite sur la grue",null,null));
+                     "Aile droite endommagée","Aile gauche endommagée","Validation de la grue expirée","Girophare cassé","Bip de recule défaillant","Caméra de recul cassée","Fuite sur la grue",
+                         "extincteur manquant",null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2));
     }
 
 
-    private QuestionBank generateQuestions9(){
+    private QuestionBank generateQuestions10(){
         Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-                null,null,null,null,null,null,null,null,null,null));
+                null,null,null,null,null,null,null,null,null,null,null,null));
         Question question2=new Question("Vérification de l'état du porteur",
                  Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
                                 "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
                  "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
                  "Aile droite endommagée","Aile gauche endommagée","Les portes ne se ferment pas correctement",
-                         "Validation du Hayon expiré","Fuite d'huile au niveau du hayon",null,null,null,null));
+                         "Validation du Hayon expirée","Fuite d'huile au niveau du hayon","extincteur manquant",null,null,null,null,null));
+        return new QuestionBank(Arrays.asList(question1,question2));
+    }
+
+    private QuestionBank generateQuestions11(){
+        Question question1=new Question("Est-ce que votre camion est en état de rouler?",Arrays.asList("Oui","Non",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
+                null,null,null,null,null,null,null,null,null,null,null,null));
+        Question question2=new Question("Vérification de l'état du porteur citerne",
+                Arrays.asList("Rien à signaler","Voyant allumé","Pneu crevé","Pneus lisses","Présence d'hernies","Fuite d'huile","Fuite d'eau","Fuite de gazole",
+                        "Feu avant gauche cassé", "Feu avant droit cassé", "Feu arrière gauche cassé", "Feu arrière droit cassé", "Feu latéral gauche cassé", "Feu latéral droit cassé",
+                        "Marche pied gauche cassé", "Marche pied droit cassé", "Pare-choc avant endommagé", "Déflecteur gauche cassé", "Déflecteur droit cassé", "Calandre endommagée",
+                        "Aile droite endommagée","Aile gauche endommagée","Cône de sécurité manquant","extincteur manquant",null,null,null,null,null,null,null));
         return new QuestionBank(Arrays.asList(question1,question2));
     }
 
     private void manageCheckbox() {
-        //mVoyant.setVisibility(View.GONE);
 
-        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==2){
+        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6)&& mNumberOfQuestions==2){
             if(myArrayList.get(0).isChecked()){
                 mUrgence=0;
             }
@@ -835,7 +854,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             }
             startQuiz();
         }
-        if((mVehicule==6||mVehicule==7||mVehicule==8||mVehicule==9)&&mNumberOfQuestions==1){
+        if((mVehicule==7||mVehicule==8||mVehicule==9||mVehicule==10||mVehicule==11)&&mNumberOfQuestions==1){
             if(myArrayList.get(0).isChecked()){
                 mUrgence=0;
             }
@@ -845,7 +864,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
             startQuiz();
         }
 
-        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5)&& mNumberOfQuestions==1){
+        if((mVehicule==1||mVehicule==2||mVehicule==3||mVehicule==4||mVehicule==5||mVehicule==6)&& mNumberOfQuestions==1){
             remorqueQuiz();
 
             for(b=1;b<myArrayList.size();b++){
@@ -922,7 +941,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce tracteur, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois)")
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois).")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -933,12 +952,12 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .create()
                     .show();
         }
-        if(mVehicule==7){
+        if(mVehicule==7||mVehicule==8){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois)")
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois).")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -949,12 +968,13 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .create()
                     .show();
         }
-        if(mVehicule==8){
+        if(mVehicule==11){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle de la grue et le PV des mines (si le véhicule est luxembourgeois)")
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance et le PV des mines (si le véhicule est luxembourgeois)." +
+                            " En cas de transport de matière dangereuse, il est obligatoire d'avoir la valise ADR et la plaque de matière dangereuse. ")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -966,6 +986,22 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
                     .show();
         }
         if(mVehicule==9){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle de la grue et le PV des mines (si le véhicule est luxembourgeois).")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==10){
             AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
             builder2.setTitle("Avez-vous votre clé hayon?")
                     .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
@@ -1039,7 +1075,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce véhicule, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois)")
+                            "la carte grise, la liscence de transport, la taxe à l'essieu, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois).")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -1053,12 +1089,29 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void remorqueQuiz(){
-        if(mVehicule==1||mVehicule==3||mVehicule==4||mVehicule==5){
+        if(mVehicule==3||mVehicule==4||mVehicule==6){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, l'assurance et le PV des mines (si le véhicule est luxembourgeois)" )
+                            "la carte grise, l'assurance et le PV des mines (si le véhicule est luxembourgeois)." )
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+        if(mVehicule==1||mVehicule==5){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("IMPORTANT:")
+                    .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession de: " +
+                            "la carte grise, l'assurance et le PV des mines (si le véhicule est luxembourgeois)." +
+                            " En cas de transport de matière dangereuse, il est obligatoire d'avoir la valise ADR et la plaque de matière dangereuse." )
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -1159,7 +1212,7 @@ public class TourCamionActivity extends AppCompatActivity implements View.OnClic
 
             builder.setTitle("IMPORTANT:")
                     .setMessage("Pour ce type de remorque, vous devez impérativement vérifier que vous êtes en possession de: " +
-                            "la carte grise, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois)" )
+                            "la carte grise, l'assurance, le certificat de contrôle du hayon et le PV des mines (si le véhicule est luxembourgeois)." )
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
